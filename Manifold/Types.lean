@@ -13,9 +13,10 @@ class Manifold (Chart : Type u) (R : outParam (Type v)) (dim : outParam Nat) whe
   chartTrans : (From : Vector R dim × Chart) → (To : Chart) → Option (Vector R dim × Chart)
   pointEq : (Vector R dim × Chart) → (Vector R dim × Chart) → Bool
 
+/-- A point is a coordinate with its chart. -/
 def ChartedPoint Chart [Manifold Chart R dim]  := Vector R dim × Chart
 
-structure Ray (Chart) [Manifold Chart R dim] where
+structure Ray (Chart : Type u) [Manifold Chart R dim] where
   position : ChartedPoint Chart
   direction : Tensor 1 dim R
 
@@ -33,15 +34,38 @@ def TanVec Chart [Manifold Chart R dim] := ChartedPoint Chart × Tensor 1 dim R
 
 /-- A computible "Riemannian manifold". -/
 class RieManifold (Chart : Type u) (R : outParam (Type v)) (dim : outParam Nat) extends Manifold Chart R dim where
-  metric  : FieldM Chart (Mat dim R)
-  connect : FieldM Chart (Tensor 3 dim R)
-  mdv : FieldM Chart (Tensor n dim R) → TanVec Chart → FieldM Chart (Tensor n dim R)
+  metric          : FieldM Chart (Tensor 2 dim R)
+  metricInv       : FieldM Chart (Tensor 2 dim R)
+  /-- \(Γ^σ_{μν}\)-/
+  connect         : FieldM Chart (Tensor 3 dim R)
+  /-- Covarint derivative, only works on vector field (not dual vector). -/
+  mdv             : FieldM Chart (Tensor 1 dim R) → FieldM Chart (Tensor 2 dim R)
   geodesicPredict : (ε : R) → Ray Chart → ChartedPoint Chart
 
 open Tensor
 
-def genConnect [Floating R] [Manifold Chart R dim] : FieldM Chart (Tensor 3 dim R) := sorry
-def genMdv [Floating R] [Manifold Chart R dim] : FieldM Chart (Tensor n dim R) → TanVec Chart → FieldM Chart (Tensor n dim R) := sorry
+/-- Coordinate derivative, `dir` to choose a direction. -/
+def chartDv [Manifold Chart R dim] [Derivable R T] (f : FieldM Chart T) (dir : Fin dim) : FieldM Chart T
+  := fun ⟨ p, chart ⟩ => (λ x ↦ f ⟨⟨p.val.set dir.val x, by simp⟩, chart⟩)’ (p.get dir)
+
+
+def genConnect [Floating R] [RieManifold Chart R dim] : FieldM Chart (Tensor 3 dim R)
+  := fun pos@⟨ p, chart ⟩ => fun ⟨ [σ, μ, ν], _ ⟩ => open Floating RieManifold in half * sum[
+      metricInv ⟨ p, chart ⟩ ⟨ [σ, ρ], by simp ⟩ * (
+          chartDv (fun p' => metric p' ⟨ [ρ,μ], by simp ⟩) ν pos
+        + chartDv (fun p' => metric p' ⟨ [ν,ρ], by simp ⟩) μ pos
+        - chartDv (fun p' => metric p' ⟨ [μ,ν], by simp ⟩) ρ pos
+      )
+  | ρ < dim ]
+
+def genMdv [Floating R] [Manifold Chart R dim] (connect : FieldM Chart (Tensor 3 dim R))
+  (vec : FieldM Chart (Tensor 1 dim R)) : FieldM Chart (Tensor 2 dim R)
+  := fun pos => fun ⟨ [μ, ν] , _ ⟩ =>
+    chartDv (fun p' => vec p' ⟨[ν],by simp⟩) μ pos
+      + sum[
+        connect pos ⟨[ν,μ,σ],by simp⟩ * vec pos ⟨[σ],by simp⟩
+      | σ < dim ]
+
 def genGeodesicPredict [Floating R] [Manifold Chart R dim] : (ε : R) → Ray Chart → ChartedPoint Chart := sorry
 
 -- class RieManifold (Chart : Type u) (R : outParam (Type v)) (dim : outParam Nat) extends Metric Chart R dim where
