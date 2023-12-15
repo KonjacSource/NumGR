@@ -16,8 +16,11 @@ class Floating (R : Type u)
         , Inhabited R, Derivable R R where
   default := zero
   half := one / (one + one)
+  eps : R
+
 
 instance : Floating Float where
+  eps := 1e-4
   dv f x := let ε := 1e-4; (f (x + ε/2) - f (x - ε/2)) / ε
 
 instance : Functor (Tensor rank dim) where
@@ -36,6 +39,9 @@ instance [Zero R] : Zero (Tensor rank dim R) where
 instance [Add R] : Add (Tensor rank dim R) where
   add a b := Add.add <$> a <*> b
 
+instance [Mul R] : HMul R (Tensor rank dim R) (Tensor rank dim R) where
+  hMul x t := Functor.map (x * ·) t
+
 @[simp]
 def applyN (f : α → α) : Nat → α → α
   | 0 , a => a
@@ -49,15 +55,46 @@ instance applyNToStr [ToString R] [ToString (applyN List n R)]
 
   toString x := toString (α := List (applyN List n R)) x
 
+def largerFins : List (Fin n) → List (Fin (n + k))
+| [] => []
+| ⟨x,prf⟩ ::xs => ⟨x,Nat.lt_add_right x n k prf⟩ :: largerFins xs
+
+lemma largerFins_keep_length : (largerFins (n:=n) (k:=k) f).length =  f.length := by
+  cases f
+  rfl
+  simp[largerFins]
+  apply largerFins_keep_length
+
+
 def finRange n : List (Fin n) := match n with
   | 0 => []
-  | n + 1 => (finRange n : List (Fin (n + 1))).concat ⟨ n , by simp ⟩
+  | n + 1 => (largerFins $ finRange n).concat ⟨ n , by simp ⟩
+
+lemma concatLength : (ls : List α) → (ls.concat x).length = ls.length + 1
+| [] => rfl
+| y::ys => by simp
+
+lemma finRangeNum : (n : Nat) → List.length (finRange n) = n
+| 0 => rfl
+| n + 1 => by
+  simp[finRange,largerFins]
+  let pre : (finRange n).length = n := finRangeNum n
+  let a := (largerFins (n:=n) (k:=1) (finRange n)).length
+  let h1 : a = (finRange n).length := largerFins_keep_length
+  rw [pre] at h1
+  exact h1
 
 def toList : {n : Nat} → Tensor n dim R → applyN List n R
   | 0    , t => t ⟨ [], by rfl ⟩
   | n + 1, t => List.map (fun i => toList fun v =>
         t ⟨ i :: v.val , by simp ⟩
       ) $ finRange dim
+
+theorem toListLengthDim {tensor : Tensor (n+1) dim R} : List.length (toList tensor) = dim :=
+by
+  cases dim with
+  | zero => rfl
+  | succ d => simp[toList] ; apply finRangeNum
 
 lemma lengthSuc : List.length (x :: xs) = n + 1 → List.length xs = n := by simp
 

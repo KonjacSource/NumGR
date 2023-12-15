@@ -40,7 +40,7 @@ class RieManifold (Chart : Type u) (R : outParam (Type v)) (dim : outParam Nat) 
   connect         : FieldM Chart (Tensor 3 dim R)
   /-- Covarint derivative, only works on vector field (not dual vector). -/
   mdv             : FieldM Chart (Tensor 1 dim R) → FieldM Chart (Tensor 2 dim R)
-  geodesicPredict : (ε : R) → Ray Chart → ChartedPoint Chart
+  nextRay         : (ε : R) → Ray Chart → Option (Ray Chart)
 
 open Tensor
 
@@ -66,7 +66,19 @@ def genMdv [Floating R] [Manifold Chart R dim] (connect : FieldM Chart (Tensor 3
         connect pos ⟨[ν,μ,σ],by simp⟩ * vec pos ⟨[σ],by simp⟩
       | σ < dim ]
 
-def genGeodesicPredict [Floating R] [Manifold Chart R dim] : (ε : R) → Ray Chart → ChartedPoint Chart := sorry
+def genNextRay [Floating R] [Manifold Chart R dim] (connect : FieldM Chart (Tensor 3 dim R))
+  (ε : R)  (ray : Ray Chart) : Option (Ray Chart)
+  := let nextPos := fromList dim ray.position.1.val + ε * ray.direction;
+     let nextDir : Tensor 1 dim R := fun ⟨[μ], _ ⟩ =>
+        ray.direction ⟨[μ], by simp⟩
+      - ε * sum[ sum[
+        connect ray.position ⟨[μ,ν,ρ] , by simp⟩
+          * ray.direction ⟨[ν],by simp⟩
+          * ray.direction ⟨[ρ],by simp⟩
+      | ν < dim ] | ρ < dim ];
+  match findChart ⟨ ⟨ toList nextPos, by apply toListLengthDim ⟩, ray.position.2 ⟩ with
+  | none => none
+  | some pos => some ⟨ pos, nextDir ⟩
 
 -- class RieManifold (Chart : Type u) (R : outParam (Type v)) (dim : outParam Nat) extends Metric Chart R dim where
 --   connect := fun ⟨ p, chart ⟩ => fun ⟨ [σ, μ, ν], _ ⟩ => sorry
