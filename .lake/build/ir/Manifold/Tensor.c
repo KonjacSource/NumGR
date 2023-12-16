@@ -16,6 +16,7 @@ extern "C" {
 LEAN_EXPORT lean_object* l_Tensor_instFloatingFloat;
 LEAN_EXPORT lean_object* l___private_Manifold_Tensor_0__Tensor_toList_match__1_splitter___rarg(lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l___private_Manifold_Tensor_0__Tensor_toList_match__1_splitter___rarg___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Tensor_Vector_Functor___elambda__2(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_instZeroTensor(lean_object*, lean_object*, lean_object*);
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__17;
 LEAN_EXPORT lean_object* l_Tensor_instAddTensor___rarg(lean_object*, lean_object*, lean_object*, lean_object*);
@@ -23,9 +24,12 @@ static lean_object* l_Tensor___aux__Manifold__Tensor______unexpand__Tensor__Deri
 LEAN_EXPORT lean_object* l_Tensor_instApplicativeTensor___lambda__4___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 lean_object* lean_mk_empty_array_with_capacity(lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_instToStringTensor(lean_object*);
+LEAN_EXPORT lean_object* l_Tensor_Vector_Applicative___lambda__4___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Tensor_Vector_Functor___elambda__1(lean_object*, lean_object*, lean_object*);
 uint8_t l_Lean_Syntax_matchesIdent(lean_object*, lean_object*);
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__term___u2019__1___closed__8;
 extern lean_object* l_instDivFloat;
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__2(lean_object*, lean_object*);
 double lean_float_div(double, double);
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__1;
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__26;
@@ -33,8 +37,12 @@ LEAN_EXPORT lean_object* l_Tensor_instFloatingFloat___closed__7___boxed__const__
 static lean_object* l_Tensor_termSum_x5b___x7c___x3c___x5d___closed__13;
 static lean_object* l_Tensor___aux__Manifold__Tensor______unexpand__Tensor__Derivable__dv__1___closed__2;
 LEAN_EXPORT lean_object* l_Tensor_instToStringTensor___rarg(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__6___rarg(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__3___rarg(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__4___rarg(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_instDerivableTensor___rarg(lean_object*, lean_object*, lean_object*, lean_object*);
 lean_object* l_Lean_Syntax_getArgs(lean_object*);
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__2___rarg(lean_object*, lean_object*);
 lean_object* l_Lean_replaceRef(lean_object*, lean_object*);
 static lean_object* l_Tensor_termSum_x5b___x7c___x3c___x5d___closed__19;
 static lean_object* l_Tensor_instApplicativeTensor___closed__1;
@@ -46,6 +54,7 @@ LEAN_EXPORT lean_object* l_Tensor_fromList___rarg___boxed(lean_object*, lean_obj
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__21;
 LEAN_EXPORT lean_object* l_Tensor_delta___rarg___lambda__1___boxed(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_instDerivableTensor___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Tensor_Vector_Functor___elambda__2___boxed(lean_object*, lean_object*, lean_object*);
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__term___u2019__1___closed__6;
 static double l_Tensor_instFloatingFloat___lambda__1___closed__2;
 uint8_t l_Lean_Syntax_isOfKind(lean_object*, lean_object*);
@@ -55,7 +64,10 @@ static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__te
 static double l_Tensor_instFloatingFloat___closed__3;
 lean_object* l_List_toString___rarg(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_instApplicativeTensor___lambda__2(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__6(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Tensor_instReprVector___boxed(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_instAddTensor(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Tensor_instReprTensor___rarg(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_instApplicativeTensor___lambda__3(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 static lean_object* l_Tensor_termSum_x5b___x7c___x3c___x5d___closed__16;
 LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_toList___spec__1___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
@@ -66,6 +78,9 @@ static double l_Tensor_instFloatingFloat___lambda__1___closed__1;
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__12;
 LEAN_EXPORT lean_object* l_Tensor_instZeroTensor___rarg(lean_object*, lean_object*);
 lean_object* l_Lean_Syntax_getNumArgs(lean_object*);
+LEAN_EXPORT lean_object* l_Tensor_instToStringVector(lean_object*, lean_object*);
+lean_object* l_List_mapTR_loop___rarg(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__3(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_instToStringApplyNTypeListOfNatNatInstOfNatNat___rarg(lean_object*, lean_object*);
 extern lean_object* l_instMulFloat;
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__8;
@@ -75,6 +90,7 @@ LEAN_EXPORT lean_object* l_Tensor_fromList(lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_instZeroTensor___boxed(lean_object*, lean_object*, lean_object*);
 lean_object* l_Lean_Name_mkStr3(lean_object*, lean_object*, lean_object*);
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__27;
+LEAN_EXPORT lean_object* l_Tensor_Vector_Applicative(lean_object*);
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__15;
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__14;
 LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_toList___spec__1___lambda__1(lean_object*, lean_object*, lean_object*);
@@ -84,7 +100,10 @@ static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__te
 static lean_object* l_Tensor_term___u2019___closed__6;
 LEAN_EXPORT lean_object* l_Tensor_instApplicativeTensor___lambda__1(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_term___u2019;
+LEAN_EXPORT lean_object* l_Tensor_instToStringVector___rarg(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Tensor_Vector_Functor___elambda__1___rarg(lean_object*, lean_object*);
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__term___u2019__1___closed__12;
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Functor___elambda__1___spec__1(lean_object*, lean_object*);
 double lean_float_add(double, double);
 static lean_object* l_Tensor_instFunctorTensor___closed__3;
 LEAN_EXPORT lean_object* l_Tensor_mkMat___boxed(lean_object*, lean_object*);
@@ -92,44 +111,61 @@ lean_object* l_Lean_SourceInfo_fromRef(lean_object*, uint8_t);
 LEAN_EXPORT lean_object* l___private_Manifold_Tensor_0__Tensor_finRange_match__1_splitter(lean_object*);
 static lean_object* l_Tensor_termSum_x5b___x7c___x3c___x5d___closed__2;
 lean_object* lean_nat_to_int(lean_object*);
+LEAN_EXPORT lean_object* l_Tensor_Vector_Applicative___lambda__3(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__4(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__7(lean_object*);
+LEAN_EXPORT lean_object* l_Tensor_Vector_Applicative___lambda__5(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+static lean_object* l_Tensor_Vector_Applicative___lambda__6___closed__2;
 LEAN_EXPORT lean_object* l_Tensor_instApplicativeTensor___lambda__4(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__29;
 extern lean_object* l_instInhabitedFloat;
 LEAN_EXPORT lean_object* l_Tensor_Floating_default___default___rarg(lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_largerFins___boxed(lean_object*, lean_object*, lean_object*);
 static lean_object* l_Tensor_instFunctorTensor___closed__2;
+LEAN_EXPORT lean_object* l_Tensor_Vector_Functor___elambda__1___boxed(lean_object*, lean_object*, lean_object*);
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__19;
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__25;
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__11;
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__5;
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__1___rarg(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Functor___elambda__1___spec__1___rarg(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor___aux__Manifold__Tensor______unexpand__List__sum__1___lambda__1___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_applyN___rarg___boxed(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_delta___rarg___boxed(lean_object*, lean_object*, lean_object*);
 lean_object* l_flip___rarg(lean_object*, lean_object*, lean_object*);
+lean_object* l_Function_const___rarg___boxed(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_instFloatingFloat___closed__7___boxed__const__3;
 static lean_object* l_Tensor_term___u2019___closed__2;
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__1(lean_object*, lean_object*);
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__3;
 static lean_object* l_Tensor___aux__Manifold__Tensor______unexpand__Tensor__Derivable__dv__1___closed__1;
 static lean_object* l_Tensor_termSum_x5b___x7c___x3c___x5d___closed__6;
 static lean_object* l_Tensor_fromList___rarg___closed__4;
 LEAN_EXPORT lean_object* l_Tensor_applyNToStr___rarg(lean_object*);
+LEAN_EXPORT lean_object* l_Tensor_instReprTensor___rarg___boxed(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_largerFins(lean_object*, lean_object*, lean_object*);
 lean_object* l_Lean_Syntax_node3(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__23;
 static double l_Tensor_instFloatingFloat___closed__4;
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__4___rarg___lambda__1(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Tensor_Vector_Functor___elambda__2___rarg(lean_object*, lean_object*);
 static lean_object* l_Tensor_term___u2019___closed__1;
 static lean_object* l_Tensor_instFunctorTensor___closed__1;
+lean_object* l_List_replicateTR___rarg(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_instApplicativeTensor___lambda__3___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_mkMat___rarg(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l___private_Manifold_Tensor_0__Tensor_toList_match__1_splitter(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__7___rarg(lean_object*, lean_object*);
 lean_object* l_Lean_addMacroScope(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_instAddTensor___boxed(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l___private_Manifold_Tensor_0__Tensor_applyN_match__1_splitter___rarg___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l___private_Manifold_Tensor_0__Tensor_largerFins_match__1_splitter(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_delta___rarg(lean_object*, lean_object*, lean_object*);
 lean_object* l_Lean_Name_str___override(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Tensor_Vector_Applicative___lambda__1(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__16;
 lean_object* l_Lean_Syntax_node2(lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Tensor_instReprTensor___boxed(lean_object*, lean_object*, lean_object*);
 lean_object* l_Lean_Syntax_getArg(lean_object*, lean_object*);
 lean_object* l___private_Init_Util_0__mkPanicMessageWithDecl(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 uint8_t l_Lean_Syntax_matchesNull(lean_object*, lean_object*);
@@ -150,7 +186,9 @@ LEAN_EXPORT lean_object* l_Tensor___aux__Manifold__Tensor______unexpand__Tensor_
 static lean_object* l_Tensor_instApplicativeTensor___closed__4;
 LEAN_EXPORT lean_object* l_Tensor_delta___rarg___lambda__1(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_mkMat(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Tensor_Vector_Applicative___lambda__6(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 static double l_Tensor_instFloatingFloat___closed__5;
+static lean_object* l_Tensor_Vector_Applicative___lambda__5___closed__1;
 double l_Float_ofScientific(lean_object*, uint8_t, lean_object*);
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__22;
 lean_object* l_Array_extract___rarg(lean_object*, lean_object*, lean_object*);
@@ -178,6 +216,7 @@ static lean_object* l_Tensor_termSum_x5b___x7c___x3c___x5d___closed__20;
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__term___u2019__1___closed__4;
 extern lean_object* l_instAddFloat;
 LEAN_EXPORT lean_object* l___private_Manifold_Tensor_0__Tensor_applyN_match__1_splitter(lean_object*, lean_object*);
+lean_object* l_id___rarg___boxed(lean_object*);
 lean_object* l_Lean_Name_mkStr2(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_finRange(lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_instHMulTensor___rarg(lean_object*, lean_object*, lean_object*, lean_object*);
@@ -186,6 +225,7 @@ static lean_object* l_Tensor_termSum_x5b___x7c___x3c___x5d___closed__7;
 lean_object* l_Lean_Syntax_node7(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 lean_object* l_Lean_Syntax_node1(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l___private_Manifold_Tensor_0__Tensor_largerFins_match__1_splitter___rarg___boxed(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Tensor_Vector_Applicative___lambda__2(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__2;
 static lean_object* l_Tensor_termSum_x5b___x7c___x3c___x5d___closed__23;
 static lean_object* l_Tensor_instFloatingFloat___closed__7;
@@ -196,6 +236,7 @@ LEAN_EXPORT lean_object* l_Tensor_instFunctorTensor(lean_object*, lean_object*);
 lean_object* lean_nat_sub(lean_object*, lean_object*);
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__30;
 LEAN_EXPORT lean_object* l_Tensor_Floating_default___default(lean_object*);
+LEAN_EXPORT lean_object* l_Tensor_instReprTensor(lean_object*, lean_object*, lean_object*);
 static lean_object* l_Tensor_termSum_x5b___x7c___x3c___x5d___closed__8;
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__term___u2019__1___closed__14;
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__term___u2019__1___closed__15;
@@ -203,20 +244,25 @@ LEAN_EXPORT lean_object* l_Tensor_instToStringTensor___rarg___boxed(lean_object*
 LEAN_EXPORT lean_object* l_Tensor_instFunctorTensor___boxed(lean_object*, lean_object*);
 static lean_object* l_Tensor_termSum_x5b___x7c___x3c___x5d___closed__10;
 static lean_object* l_Tensor_termSum_x5b___x7c___x3c___x5d___closed__21;
+LEAN_EXPORT lean_object* l_Tensor_Vector_Functor(lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_instFloatingFloat___lambda__1___boxed(lean_object*, lean_object*);
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__term___u2019__1___closed__11;
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__5(lean_object*, lean_object*);
 static lean_object* l_Tensor_fromList___rarg___closed__3;
 static double l_Tensor_instFloatingFloat___closed__2;
 lean_object* l_List_concat___rarg(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_finRange___boxed(lean_object*);
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__20;
 lean_object* l_List_reverse___rarg(lean_object*);
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__5___rarg(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_instApplicativeTensor___boxed(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Tensor_instToStringVector___boxed(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_toList___spec__1(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_instHMulTensor(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor___aux__Manifold__Tensor______unexpand__Tensor__Derivable__dv__1___lambda__2(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 lean_object* l_Function_comp___rarg(lean_object*, lean_object*, lean_object*);
 static lean_object* l_Tensor_instFloatingFloat___closed__6;
+static lean_object* l_Tensor_Vector_Applicative___lambda__6___closed__1;
 LEAN_EXPORT double l_Tensor_instFloatingFloat___lambda__1(lean_object*, double);
 LEAN_EXPORT lean_object* l_Tensor_Test_testTensor(lean_object*);
 static lean_object* l_Tensor_term___u2019___closed__4;
@@ -228,10 +274,12 @@ LEAN_EXPORT lean_object* l_Tensor___aux__Manifold__Tensor______unexpand__Tensor_
 lean_object* l_Lean_Name_mkStr4(lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1(lean_object*, lean_object*, lean_object*);
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__term___u2019__1___closed__7;
+LEAN_EXPORT lean_object* l_Tensor_instReprVector___rarg(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_instFloatingFloat___closed__7___boxed__const__4;
 static lean_object* l_Tensor_termSum_x5b___x7c___x3c___x5d___closed__5;
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__term___u2019__1___closed__10;
 static lean_object* l_Tensor_instFloatingFloat___closed__1;
+LEAN_EXPORT lean_object* l_Tensor_instReprVector___rarg___boxed(lean_object*, lean_object*, lean_object*);
 lean_object* lean_int_neg(lean_object*);
 extern lean_object* l_instHomogeneousPowFloat;
 uint8_t lean_nat_dec_le(lean_object*, lean_object*);
@@ -241,6 +289,7 @@ LEAN_EXPORT lean_object* l_Tensor_applyN___rarg(lean_object*, lean_object*, lean
 static lean_object* l_Tensor_termSum_x5b___x7c___x3c___x5d___closed__9;
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__18;
 lean_object* lean_nat_add(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_Tensor_Vector_Applicative___lambda__4(lean_object*, lean_object*, lean_object*, lean_object*);
 static lean_object* l_Tensor___aux__Manifold__Tensor______unexpand__Tensor__Derivable__dv__1___lambda__2___closed__1;
 lean_object* l_String_toSubstring_x27(lean_object*);
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__6;
@@ -248,11 +297,14 @@ LEAN_EXPORT lean_object* l_Tensor_instToStringApplyNTypeListOfNatNatInstOfNatNat
 static lean_object* l_Tensor_termSum_x5b___x7c___x3c___x5d___closed__17;
 LEAN_EXPORT lean_object* l_Tensor_Floating_half___default(lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_instZeroTensor___rarg___boxed(lean_object*, lean_object*);
+static lean_object* l_Tensor_Vector_Applicative___closed__1;
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__9;
 LEAN_EXPORT lean_object* l_Tensor___aux__Manifold__Tensor______unexpand__Tensor__Derivable__dv__1(lean_object*, lean_object*, lean_object*);
+lean_object* l_List_zipWith___at_List_zip___spec__1___rarg(lean_object*, lean_object*);
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__term___u2019__1___closed__1;
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__7;
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__term___u2019__1___closed__5;
+LEAN_EXPORT lean_object* l_Tensor_instReprVector(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor___aux__Manifold__Tensor______unexpand__List__sum__1(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_Tensor_instHMulTensor___boxed(lean_object*, lean_object*, lean_object*);
 static lean_object* l_Tensor___aux__Manifold__Tensor______macroRules__Tensor__termSum_x5b___x7c___x3c___x5d__1___closed__24;
@@ -971,6 +1023,744 @@ x_3 = lean_unbox_float(x_2);
 lean_dec(x_2);
 x_4 = l_Tensor_instFloatingFloat___lambda__1(x_1, x_3);
 x_5 = lean_box_float(x_4);
+return x_5;
+}
+}
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Functor___elambda__1___spec__1___rarg(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+if (lean_obj_tag(x_2) == 0)
+{
+lean_object* x_4; 
+lean_dec(x_1);
+x_4 = l_List_reverse___rarg(x_3);
+return x_4;
+}
+else
+{
+uint8_t x_5; 
+x_5 = !lean_is_exclusive(x_2);
+if (x_5 == 0)
+{
+lean_object* x_6; lean_object* x_7; 
+x_6 = lean_ctor_get(x_2, 1);
+x_7 = lean_ctor_get(x_2, 0);
+lean_dec(x_7);
+lean_inc(x_1);
+lean_ctor_set(x_2, 1, x_3);
+lean_ctor_set(x_2, 0, x_1);
+{
+lean_object* _tmp_1 = x_6;
+lean_object* _tmp_2 = x_2;
+x_2 = _tmp_1;
+x_3 = _tmp_2;
+}
+goto _start;
+}
+else
+{
+lean_object* x_9; lean_object* x_10; 
+x_9 = lean_ctor_get(x_2, 1);
+lean_inc(x_9);
+lean_dec(x_2);
+lean_inc(x_1);
+x_10 = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(x_10, 0, x_1);
+lean_ctor_set(x_10, 1, x_3);
+x_2 = x_9;
+x_3 = x_10;
+goto _start;
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Functor___elambda__1___spec__1(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; 
+x_3 = lean_alloc_closure((void*)(l_List_mapTR_loop___at_Tensor_Vector_Functor___elambda__1___spec__1___rarg), 3, 0);
+return x_3;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_Vector_Functor___elambda__1___rarg(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; lean_object* x_4; 
+x_3 = lean_box(0);
+x_4 = l_List_mapTR_loop___at_Tensor_Vector_Functor___elambda__1___spec__1___rarg(x_1, x_2, x_3);
+return x_4;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_Vector_Functor___elambda__1(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+lean_object* x_4; 
+x_4 = lean_alloc_closure((void*)(l_Tensor_Vector_Functor___elambda__1___rarg), 2, 0);
+return x_4;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_Vector_Functor___elambda__2___rarg(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; lean_object* x_4; 
+x_3 = lean_box(0);
+x_4 = l_List_mapTR_loop___rarg(x_1, x_2, x_3);
+return x_4;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_Vector_Functor___elambda__2(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+lean_object* x_4; 
+x_4 = lean_alloc_closure((void*)(l_Tensor_Vector_Functor___elambda__2___rarg), 2, 0);
+return x_4;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_Vector_Functor(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; lean_object* x_3; lean_object* x_4; 
+lean_inc(x_1);
+x_2 = lean_alloc_closure((void*)(l_Tensor_Vector_Functor___elambda__2___boxed), 3, 1);
+lean_closure_set(x_2, 0, x_1);
+x_3 = lean_alloc_closure((void*)(l_Tensor_Vector_Functor___elambda__1___boxed), 3, 1);
+lean_closure_set(x_3, 0, x_1);
+x_4 = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(x_4, 0, x_2);
+lean_ctor_set(x_4, 1, x_3);
+return x_4;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_Vector_Functor___elambda__1___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+lean_object* x_4; 
+x_4 = l_Tensor_Vector_Functor___elambda__1(x_1, x_2, x_3);
+lean_dec(x_1);
+return x_4;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_Vector_Functor___elambda__2___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+lean_object* x_4; 
+x_4 = l_Tensor_Vector_Functor___elambda__2(x_1, x_2, x_3);
+lean_dec(x_1);
+return x_4;
+}
+}
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__1___rarg(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+if (lean_obj_tag(x_1) == 0)
+{
+lean_object* x_3; 
+x_3 = l_List_reverse___rarg(x_2);
+return x_3;
+}
+else
+{
+uint8_t x_4; 
+x_4 = !lean_is_exclusive(x_1);
+if (x_4 == 0)
+{
+lean_object* x_5; lean_object* x_6; lean_object* x_7; lean_object* x_8; lean_object* x_9; 
+x_5 = lean_ctor_get(x_1, 0);
+x_6 = lean_ctor_get(x_1, 1);
+x_7 = lean_ctor_get(x_5, 0);
+lean_inc(x_7);
+x_8 = lean_ctor_get(x_5, 1);
+lean_inc(x_8);
+lean_dec(x_5);
+x_9 = lean_apply_1(x_7, x_8);
+lean_ctor_set(x_1, 1, x_2);
+lean_ctor_set(x_1, 0, x_9);
+{
+lean_object* _tmp_0 = x_6;
+lean_object* _tmp_1 = x_1;
+x_1 = _tmp_0;
+x_2 = _tmp_1;
+}
+goto _start;
+}
+else
+{
+lean_object* x_11; lean_object* x_12; lean_object* x_13; lean_object* x_14; lean_object* x_15; lean_object* x_16; 
+x_11 = lean_ctor_get(x_1, 0);
+x_12 = lean_ctor_get(x_1, 1);
+lean_inc(x_12);
+lean_inc(x_11);
+lean_dec(x_1);
+x_13 = lean_ctor_get(x_11, 0);
+lean_inc(x_13);
+x_14 = lean_ctor_get(x_11, 1);
+lean_inc(x_14);
+lean_dec(x_11);
+x_15 = lean_apply_1(x_13, x_14);
+x_16 = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(x_16, 0, x_15);
+lean_ctor_set(x_16, 1, x_2);
+x_1 = x_12;
+x_2 = x_16;
+goto _start;
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__1(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; 
+x_3 = lean_alloc_closure((void*)(l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__1___rarg), 2, 0);
+return x_3;
+}
+}
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__2___rarg(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+if (lean_obj_tag(x_1) == 0)
+{
+lean_object* x_3; 
+x_3 = l_List_reverse___rarg(x_2);
+return x_3;
+}
+else
+{
+uint8_t x_4; 
+x_4 = !lean_is_exclusive(x_1);
+if (x_4 == 0)
+{
+lean_object* x_5; lean_object* x_6; lean_object* x_7; lean_object* x_8; lean_object* x_9; 
+x_5 = lean_ctor_get(x_1, 0);
+x_6 = lean_ctor_get(x_1, 1);
+x_7 = lean_ctor_get(x_5, 0);
+lean_inc(x_7);
+x_8 = lean_ctor_get(x_5, 1);
+lean_inc(x_8);
+lean_dec(x_5);
+x_9 = lean_apply_1(x_7, x_8);
+lean_ctor_set(x_1, 1, x_2);
+lean_ctor_set(x_1, 0, x_9);
+{
+lean_object* _tmp_0 = x_6;
+lean_object* _tmp_1 = x_1;
+x_1 = _tmp_0;
+x_2 = _tmp_1;
+}
+goto _start;
+}
+else
+{
+lean_object* x_11; lean_object* x_12; lean_object* x_13; lean_object* x_14; lean_object* x_15; lean_object* x_16; 
+x_11 = lean_ctor_get(x_1, 0);
+x_12 = lean_ctor_get(x_1, 1);
+lean_inc(x_12);
+lean_inc(x_11);
+lean_dec(x_1);
+x_13 = lean_ctor_get(x_11, 0);
+lean_inc(x_13);
+x_14 = lean_ctor_get(x_11, 1);
+lean_inc(x_14);
+lean_dec(x_11);
+x_15 = lean_apply_1(x_13, x_14);
+x_16 = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(x_16, 0, x_15);
+lean_ctor_set(x_16, 1, x_2);
+x_1 = x_12;
+x_2 = x_16;
+goto _start;
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__2(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; 
+x_3 = lean_alloc_closure((void*)(l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__2___rarg), 2, 0);
+return x_3;
+}
+}
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__3___rarg(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+if (lean_obj_tag(x_1) == 0)
+{
+lean_object* x_3; 
+x_3 = l_List_reverse___rarg(x_2);
+return x_3;
+}
+else
+{
+uint8_t x_4; 
+x_4 = !lean_is_exclusive(x_1);
+if (x_4 == 0)
+{
+lean_object* x_5; lean_object* x_6; lean_object* x_7; lean_object* x_8; lean_object* x_9; 
+x_5 = lean_ctor_get(x_1, 0);
+x_6 = lean_ctor_get(x_1, 1);
+x_7 = lean_ctor_get(x_5, 0);
+lean_inc(x_7);
+x_8 = lean_ctor_get(x_5, 1);
+lean_inc(x_8);
+lean_dec(x_5);
+x_9 = lean_apply_1(x_7, x_8);
+lean_ctor_set(x_1, 1, x_2);
+lean_ctor_set(x_1, 0, x_9);
+{
+lean_object* _tmp_0 = x_6;
+lean_object* _tmp_1 = x_1;
+x_1 = _tmp_0;
+x_2 = _tmp_1;
+}
+goto _start;
+}
+else
+{
+lean_object* x_11; lean_object* x_12; lean_object* x_13; lean_object* x_14; lean_object* x_15; lean_object* x_16; 
+x_11 = lean_ctor_get(x_1, 0);
+x_12 = lean_ctor_get(x_1, 1);
+lean_inc(x_12);
+lean_inc(x_11);
+lean_dec(x_1);
+x_13 = lean_ctor_get(x_11, 0);
+lean_inc(x_13);
+x_14 = lean_ctor_get(x_11, 1);
+lean_inc(x_14);
+lean_dec(x_11);
+x_15 = lean_apply_1(x_13, x_14);
+x_16 = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(x_16, 0, x_15);
+lean_ctor_set(x_16, 1, x_2);
+x_1 = x_12;
+x_2 = x_16;
+goto _start;
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__3(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; 
+x_3 = lean_alloc_closure((void*)(l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__3___rarg), 2, 0);
+return x_3;
+}
+}
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__4___rarg___lambda__1(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; lean_object* x_4; lean_object* x_5; 
+x_3 = lean_ctor_get(x_1, 0);
+lean_inc(x_3);
+x_4 = lean_ctor_get(x_1, 1);
+lean_inc(x_4);
+lean_dec(x_1);
+x_5 = lean_apply_2(x_3, x_4, x_2);
+return x_5;
+}
+}
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__4___rarg(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+if (lean_obj_tag(x_1) == 0)
+{
+lean_object* x_3; 
+x_3 = l_List_reverse___rarg(x_2);
+return x_3;
+}
+else
+{
+uint8_t x_4; 
+x_4 = !lean_is_exclusive(x_1);
+if (x_4 == 0)
+{
+lean_object* x_5; lean_object* x_6; lean_object* x_7; 
+x_5 = lean_ctor_get(x_1, 0);
+x_6 = lean_ctor_get(x_1, 1);
+x_7 = lean_alloc_closure((void*)(l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__4___rarg___lambda__1), 2, 1);
+lean_closure_set(x_7, 0, x_5);
+lean_ctor_set(x_1, 1, x_2);
+lean_ctor_set(x_1, 0, x_7);
+{
+lean_object* _tmp_0 = x_6;
+lean_object* _tmp_1 = x_1;
+x_1 = _tmp_0;
+x_2 = _tmp_1;
+}
+goto _start;
+}
+else
+{
+lean_object* x_9; lean_object* x_10; lean_object* x_11; lean_object* x_12; 
+x_9 = lean_ctor_get(x_1, 0);
+x_10 = lean_ctor_get(x_1, 1);
+lean_inc(x_10);
+lean_inc(x_9);
+lean_dec(x_1);
+x_11 = lean_alloc_closure((void*)(l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__4___rarg___lambda__1), 2, 1);
+lean_closure_set(x_11, 0, x_9);
+x_12 = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(x_12, 0, x_11);
+lean_ctor_set(x_12, 1, x_2);
+x_1 = x_10;
+x_2 = x_12;
+goto _start;
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__4(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; 
+x_3 = lean_alloc_closure((void*)(l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__4___rarg), 2, 0);
+return x_3;
+}
+}
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__5___rarg(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+if (lean_obj_tag(x_1) == 0)
+{
+lean_object* x_3; 
+x_3 = l_List_reverse___rarg(x_2);
+return x_3;
+}
+else
+{
+uint8_t x_4; 
+x_4 = !lean_is_exclusive(x_1);
+if (x_4 == 0)
+{
+lean_object* x_5; lean_object* x_6; lean_object* x_7; lean_object* x_8; lean_object* x_9; 
+x_5 = lean_ctor_get(x_1, 0);
+x_6 = lean_ctor_get(x_1, 1);
+x_7 = lean_ctor_get(x_5, 0);
+lean_inc(x_7);
+x_8 = lean_ctor_get(x_5, 1);
+lean_inc(x_8);
+lean_dec(x_5);
+x_9 = lean_apply_1(x_7, x_8);
+lean_ctor_set(x_1, 1, x_2);
+lean_ctor_set(x_1, 0, x_9);
+{
+lean_object* _tmp_0 = x_6;
+lean_object* _tmp_1 = x_1;
+x_1 = _tmp_0;
+x_2 = _tmp_1;
+}
+goto _start;
+}
+else
+{
+lean_object* x_11; lean_object* x_12; lean_object* x_13; lean_object* x_14; lean_object* x_15; lean_object* x_16; 
+x_11 = lean_ctor_get(x_1, 0);
+x_12 = lean_ctor_get(x_1, 1);
+lean_inc(x_12);
+lean_inc(x_11);
+lean_dec(x_1);
+x_13 = lean_ctor_get(x_11, 0);
+lean_inc(x_13);
+x_14 = lean_ctor_get(x_11, 1);
+lean_inc(x_14);
+lean_dec(x_11);
+x_15 = lean_apply_1(x_13, x_14);
+x_16 = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(x_16, 0, x_15);
+lean_ctor_set(x_16, 1, x_2);
+x_1 = x_12;
+x_2 = x_16;
+goto _start;
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__5(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; 
+x_3 = lean_alloc_closure((void*)(l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__5___rarg), 2, 0);
+return x_3;
+}
+}
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__6___rarg(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+if (lean_obj_tag(x_1) == 0)
+{
+lean_object* x_3; 
+x_3 = l_List_reverse___rarg(x_2);
+return x_3;
+}
+else
+{
+uint8_t x_4; 
+x_4 = !lean_is_exclusive(x_1);
+if (x_4 == 0)
+{
+lean_object* x_5; lean_object* x_6; lean_object* x_7; 
+x_5 = lean_ctor_get(x_1, 0);
+x_6 = lean_ctor_get(x_1, 1);
+x_7 = lean_alloc_closure((void*)(l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__4___rarg___lambda__1), 2, 1);
+lean_closure_set(x_7, 0, x_5);
+lean_ctor_set(x_1, 1, x_2);
+lean_ctor_set(x_1, 0, x_7);
+{
+lean_object* _tmp_0 = x_6;
+lean_object* _tmp_1 = x_1;
+x_1 = _tmp_0;
+x_2 = _tmp_1;
+}
+goto _start;
+}
+else
+{
+lean_object* x_9; lean_object* x_10; lean_object* x_11; lean_object* x_12; 
+x_9 = lean_ctor_get(x_1, 0);
+x_10 = lean_ctor_get(x_1, 1);
+lean_inc(x_10);
+lean_inc(x_9);
+lean_dec(x_1);
+x_11 = lean_alloc_closure((void*)(l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__4___rarg___lambda__1), 2, 1);
+lean_closure_set(x_11, 0, x_9);
+x_12 = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(x_12, 0, x_11);
+lean_ctor_set(x_12, 1, x_2);
+x_1 = x_10;
+x_2 = x_12;
+goto _start;
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__6(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; 
+x_3 = lean_alloc_closure((void*)(l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__6___rarg), 2, 0);
+return x_3;
+}
+}
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__7___rarg(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+if (lean_obj_tag(x_1) == 0)
+{
+lean_object* x_3; 
+x_3 = l_List_reverse___rarg(x_2);
+return x_3;
+}
+else
+{
+uint8_t x_4; 
+x_4 = !lean_is_exclusive(x_1);
+if (x_4 == 0)
+{
+lean_object* x_5; lean_object* x_6; lean_object* x_7; lean_object* x_8; lean_object* x_9; 
+x_5 = lean_ctor_get(x_1, 0);
+x_6 = lean_ctor_get(x_1, 1);
+x_7 = lean_ctor_get(x_5, 0);
+lean_inc(x_7);
+x_8 = lean_ctor_get(x_5, 1);
+lean_inc(x_8);
+lean_dec(x_5);
+x_9 = lean_apply_1(x_7, x_8);
+lean_ctor_set(x_1, 1, x_2);
+lean_ctor_set(x_1, 0, x_9);
+{
+lean_object* _tmp_0 = x_6;
+lean_object* _tmp_1 = x_1;
+x_1 = _tmp_0;
+x_2 = _tmp_1;
+}
+goto _start;
+}
+else
+{
+lean_object* x_11; lean_object* x_12; lean_object* x_13; lean_object* x_14; lean_object* x_15; lean_object* x_16; 
+x_11 = lean_ctor_get(x_1, 0);
+x_12 = lean_ctor_get(x_1, 1);
+lean_inc(x_12);
+lean_inc(x_11);
+lean_dec(x_1);
+x_13 = lean_ctor_get(x_11, 0);
+lean_inc(x_13);
+x_14 = lean_ctor_get(x_11, 1);
+lean_inc(x_14);
+lean_dec(x_11);
+x_15 = lean_apply_1(x_13, x_14);
+x_16 = lean_alloc_ctor(1, 2, 0);
+lean_ctor_set(x_16, 0, x_15);
+lean_ctor_set(x_16, 1, x_2);
+x_1 = x_12;
+x_2 = x_16;
+goto _start;
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__7(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; 
+x_2 = lean_alloc_closure((void*)(l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__7___rarg), 2, 0);
+return x_2;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_Vector_Applicative___lambda__1(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5) {
+_start:
+{
+lean_object* x_6; lean_object* x_7; lean_object* x_8; lean_object* x_9; 
+x_6 = l_List_replicateTR___rarg(x_1, x_4);
+x_7 = l_List_zipWith___at_List_zip___spec__1___rarg(x_6, x_5);
+lean_dec(x_6);
+x_8 = lean_box(0);
+x_9 = l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__1___rarg(x_7, x_8);
+return x_9;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_Vector_Applicative___lambda__2(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5) {
+_start:
+{
+lean_object* x_6; lean_object* x_7; lean_object* x_8; lean_object* x_9; lean_object* x_10; 
+x_6 = lean_alloc_closure((void*)(l_Function_const___rarg___boxed), 2, 1);
+lean_closure_set(x_6, 0, x_4);
+x_7 = l_List_replicateTR___rarg(x_1, x_6);
+x_8 = l_List_zipWith___at_List_zip___spec__1___rarg(x_7, x_5);
+lean_dec(x_7);
+x_9 = lean_box(0);
+x_10 = l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__2___rarg(x_8, x_9);
+return x_10;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_Vector_Applicative___lambda__3(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+lean_object* x_4; 
+x_4 = l_List_replicateTR___rarg(x_1, x_3);
+return x_4;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_Vector_Applicative___lambda__4(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
+_start:
+{
+lean_object* x_5; lean_object* x_6; lean_object* x_7; lean_object* x_8; lean_object* x_9; 
+x_5 = lean_box(0);
+x_6 = lean_apply_1(x_4, x_5);
+x_7 = l_List_zipWith___at_List_zip___spec__1___rarg(x_3, x_6);
+x_8 = lean_box(0);
+x_9 = l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__3___rarg(x_7, x_8);
+return x_9;
+}
+}
+static lean_object* _init_l_Tensor_Vector_Applicative___lambda__5___closed__1() {
+_start:
+{
+lean_object* x_1; 
+x_1 = lean_alloc_closure((void*)(l_Function_const___rarg___boxed), 2, 0);
+return x_1;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_Vector_Applicative___lambda__5(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5) {
+_start:
+{
+lean_object* x_6; lean_object* x_7; lean_object* x_8; lean_object* x_9; lean_object* x_10; lean_object* x_11; lean_object* x_12; lean_object* x_13; lean_object* x_14; 
+x_6 = l_Tensor_Vector_Applicative___lambda__5___closed__1;
+x_7 = l_List_replicateTR___rarg(x_1, x_6);
+x_8 = l_List_zipWith___at_List_zip___spec__1___rarg(x_7, x_4);
+lean_dec(x_7);
+x_9 = lean_box(0);
+x_10 = l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__4___rarg(x_8, x_9);
+x_11 = lean_box(0);
+x_12 = lean_apply_1(x_5, x_11);
+x_13 = l_List_zipWith___at_List_zip___spec__1___rarg(x_10, x_12);
+lean_dec(x_10);
+x_14 = l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__5___rarg(x_13, x_9);
+return x_14;
+}
+}
+static lean_object* _init_l_Tensor_Vector_Applicative___lambda__6___closed__1() {
+_start:
+{
+lean_object* x_1; 
+x_1 = lean_alloc_closure((void*)(l_id___rarg___boxed), 1, 0);
+return x_1;
+}
+}
+static lean_object* _init_l_Tensor_Vector_Applicative___lambda__6___closed__2() {
+_start:
+{
+lean_object* x_1; lean_object* x_2; 
+x_1 = l_Tensor_Vector_Applicative___lambda__6___closed__1;
+x_2 = lean_alloc_closure((void*)(l_Function_const___rarg___boxed), 2, 1);
+lean_closure_set(x_2, 0, x_1);
+return x_2;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_Vector_Applicative___lambda__6(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5) {
+_start:
+{
+lean_object* x_6; lean_object* x_7; lean_object* x_8; lean_object* x_9; lean_object* x_10; lean_object* x_11; lean_object* x_12; lean_object* x_13; lean_object* x_14; 
+x_6 = l_Tensor_Vector_Applicative___lambda__6___closed__2;
+x_7 = l_List_replicateTR___rarg(x_1, x_6);
+x_8 = l_List_zipWith___at_List_zip___spec__1___rarg(x_7, x_4);
+lean_dec(x_7);
+x_9 = lean_box(0);
+x_10 = l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__6___rarg(x_8, x_9);
+x_11 = lean_box(0);
+x_12 = lean_apply_1(x_5, x_11);
+x_13 = l_List_zipWith___at_List_zip___spec__1___rarg(x_10, x_12);
+lean_dec(x_10);
+x_14 = l_List_mapTR_loop___at_Tensor_Vector_Applicative___spec__7___rarg(x_13, x_9);
+return x_14;
+}
+}
+static lean_object* _init_l_Tensor_Vector_Applicative___closed__1() {
+_start:
+{
+lean_object* x_1; 
+x_1 = lean_alloc_closure((void*)(l_Tensor_Vector_Applicative___lambda__4___boxed), 4, 0);
+return x_1;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_Vector_Applicative(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; lean_object* x_3; lean_object* x_4; lean_object* x_5; lean_object* x_6; lean_object* x_7; lean_object* x_8; lean_object* x_9; 
+lean_inc(x_1);
+x_2 = lean_alloc_closure((void*)(l_Tensor_Vector_Applicative___lambda__1), 5, 1);
+lean_closure_set(x_2, 0, x_1);
+lean_inc(x_1);
+x_3 = lean_alloc_closure((void*)(l_Tensor_Vector_Applicative___lambda__2), 5, 1);
+lean_closure_set(x_3, 0, x_1);
+x_4 = lean_alloc_ctor(0, 2, 0);
+lean_ctor_set(x_4, 0, x_2);
+lean_ctor_set(x_4, 1, x_3);
+lean_inc(x_1);
+x_5 = lean_alloc_closure((void*)(l_Tensor_Vector_Applicative___lambda__3), 3, 1);
+lean_closure_set(x_5, 0, x_1);
+lean_inc(x_1);
+x_6 = lean_alloc_closure((void*)(l_Tensor_Vector_Applicative___lambda__5), 5, 1);
+lean_closure_set(x_6, 0, x_1);
+x_7 = lean_alloc_closure((void*)(l_Tensor_Vector_Applicative___lambda__6), 5, 1);
+lean_closure_set(x_7, 0, x_1);
+x_8 = l_Tensor_Vector_Applicative___closed__1;
+x_9 = lean_alloc_ctor(0, 5, 0);
+lean_ctor_set(x_9, 0, x_4);
+lean_ctor_set(x_9, 1, x_5);
+lean_ctor_set(x_9, 2, x_8);
+lean_ctor_set(x_9, 3, x_6);
+lean_ctor_set(x_9, 4, x_7);
+return x_9;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_Vector_Applicative___lambda__4___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
+_start:
+{
+lean_object* x_5; 
+x_5 = l_Tensor_Vector_Applicative___lambda__4(x_1, x_2, x_3, x_4);
+lean_dec(x_3);
 return x_5;
 }
 }
@@ -1798,7 +2588,7 @@ _start:
 lean_object* x_1; lean_object* x_2; lean_object* x_3; lean_object* x_4; lean_object* x_5; lean_object* x_6; 
 x_1 = l_Tensor_fromList___rarg___closed__1;
 x_2 = l_Tensor_fromList___rarg___closed__2;
-x_3 = lean_unsigned_to_nat(104u);
+x_3 = lean_unsigned_to_nat(114u);
 x_4 = lean_unsigned_to_nat(14u);
 x_5 = l_Tensor_fromList___rarg___closed__3;
 x_6 = l___private_Init_Util_0__mkPanicMessageWithDecl(x_1, x_2, x_3, x_4, x_5);
@@ -1935,6 +2725,104 @@ lean_object* x_5;
 x_5 = l_Tensor_instToStringTensor___rarg(x_1, x_2, x_3, x_4);
 lean_dec(x_3);
 return x_5;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_instReprTensor___rarg(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+lean_object* x_4; lean_object* x_5; 
+x_4 = lean_apply_1(x_1, x_2);
+x_5 = lean_alloc_ctor(3, 1, 0);
+lean_ctor_set(x_5, 0, x_4);
+return x_5;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_instReprTensor(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+lean_object* x_4; 
+x_4 = lean_alloc_closure((void*)(l_Tensor_instReprTensor___rarg___boxed), 3, 0);
+return x_4;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_instReprTensor___rarg___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+lean_object* x_4; 
+x_4 = l_Tensor_instReprTensor___rarg(x_1, x_2, x_3);
+lean_dec(x_3);
+return x_4;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_instReprTensor___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+lean_object* x_4; 
+x_4 = l_Tensor_instReprTensor(x_1, x_2, x_3);
+lean_dec(x_2);
+lean_dec(x_1);
+return x_4;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_instToStringVector___rarg(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; 
+x_3 = l_List_toString___rarg(x_1, x_2);
+return x_3;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_instToStringVector(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; 
+x_3 = lean_alloc_closure((void*)(l_Tensor_instToStringVector___rarg), 2, 0);
+return x_3;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_instToStringVector___boxed(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; 
+x_3 = l_Tensor_instToStringVector(x_1, x_2);
+lean_dec(x_2);
+return x_3;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_instReprVector___rarg(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+lean_object* x_4; lean_object* x_5; 
+x_4 = lean_apply_1(x_1, x_2);
+x_5 = lean_alloc_ctor(3, 1, 0);
+lean_ctor_set(x_5, 0, x_4);
+return x_5;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_instReprVector(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; 
+x_3 = lean_alloc_closure((void*)(l_Tensor_instReprVector___rarg___boxed), 3, 0);
+return x_3;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_instReprVector___rarg___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+lean_object* x_4; 
+x_4 = l_Tensor_instReprVector___rarg(x_1, x_2, x_3);
+lean_dec(x_3);
+return x_4;
+}
+}
+LEAN_EXPORT lean_object* l_Tensor_instReprVector___boxed(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; 
+x_3 = l_Tensor_instReprVector(x_1, x_2);
+lean_dec(x_2);
+return x_3;
 }
 }
 LEAN_EXPORT lean_object* l_Tensor_delta___rarg___lambda__1(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
@@ -3471,6 +4359,14 @@ l_Tensor_instFloatingFloat___closed__7 = _init_l_Tensor_instFloatingFloat___clos
 lean_mark_persistent(l_Tensor_instFloatingFloat___closed__7);
 l_Tensor_instFloatingFloat = _init_l_Tensor_instFloatingFloat();
 lean_mark_persistent(l_Tensor_instFloatingFloat);
+l_Tensor_Vector_Applicative___lambda__5___closed__1 = _init_l_Tensor_Vector_Applicative___lambda__5___closed__1();
+lean_mark_persistent(l_Tensor_Vector_Applicative___lambda__5___closed__1);
+l_Tensor_Vector_Applicative___lambda__6___closed__1 = _init_l_Tensor_Vector_Applicative___lambda__6___closed__1();
+lean_mark_persistent(l_Tensor_Vector_Applicative___lambda__6___closed__1);
+l_Tensor_Vector_Applicative___lambda__6___closed__2 = _init_l_Tensor_Vector_Applicative___lambda__6___closed__2();
+lean_mark_persistent(l_Tensor_Vector_Applicative___lambda__6___closed__2);
+l_Tensor_Vector_Applicative___closed__1 = _init_l_Tensor_Vector_Applicative___closed__1();
+lean_mark_persistent(l_Tensor_Vector_Applicative___closed__1);
 l_Tensor_instFunctorTensor___closed__1 = _init_l_Tensor_instFunctorTensor___closed__1();
 lean_mark_persistent(l_Tensor_instFunctorTensor___closed__1);
 l_Tensor_instFunctorTensor___closed__2 = _init_l_Tensor_instFunctorTensor___closed__2();

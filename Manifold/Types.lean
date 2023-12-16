@@ -11,8 +11,9 @@ class Manifold (Chart : Type u) (R : outParam (Type v)) (dim : outParam Nat) whe
   findChart : (From : Vector R dim × Chart) → Option (Vector R dim × Chart)
   /-- From a chart to a certain chart, `isPoint From` can be `False`. Return `none` if out of given chart.-/
   chartTrans : (From : Vector R dim × Chart) → (To : Chart) → Option (Vector R dim × Chart)
+  /-- Is same point? -/
   pointEq : (Vector R dim × Chart) → (Vector R dim × Chart) → Bool
-
+  -- chartTrans_to_right_chart : if let some p := chartTrans f t then p.snd = t else True
 /-- A point is a coordinate with its chart. -/
 def ChartedPoint Chart [Manifold Chart R dim]  := Vector R dim × Chart
 
@@ -34,7 +35,9 @@ def TanVec Chart [Manifold Chart R dim] := ChartedPoint Chart × Tensor 1 dim R
 
 /-- A computible "Riemannian manifold". -/
 class RieManifold (Chart : Type u) (R : outParam (Type v)) (dim : outParam Nat) extends Manifold Chart R dim where
+  /-- \(g_{μν}\)-/
   metric          : FieldM Chart (Tensor 2 dim R)
+  /-- \(g^{μν}\)-/
   metricInv       : FieldM Chart (Tensor 2 dim R)
   /-- \(Γ^σ_{μν}\)-/
   connect         : FieldM Chart (Tensor 3 dim R)
@@ -49,7 +52,8 @@ def chartDv [Manifold Chart R dim] [Derivable R T] (f : FieldM Chart T) (dir : F
   := fun ⟨ p, chart ⟩ => (λ x ↦ f ⟨⟨p.val.set dir.val x, by simp⟩, chart⟩)’ (p.get dir)
 
 
-def genConnect [Floating R] [RieManifold Chart R dim] : FieldM Chart (Tensor 3 dim R)
+def genConnect [Floating R] [Manifold Chart R dim]
+  (metric metricInv : FieldM Chart (Tensor 2 dim R)) : FieldM Chart (Tensor 3 dim R)
   := fun pos@⟨ p, chart ⟩ => fun ⟨ [σ, μ, ν], _ ⟩ => open Floating RieManifold in half * sum[
       metricInv ⟨ p, chart ⟩ ⟨ [σ, ρ], by simp ⟩ * (
           chartDv (fun p' => metric p' ⟨ [ρ,μ], by simp ⟩) ν pos
