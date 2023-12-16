@@ -69,4 +69,15 @@ instance : Manifold (Schwar M) Float 4 where
         (sphericalRegularize v1).val == (sphericalRegularize v2).val
     | _, _ => False
 
-def Schwar.metric : FieldM (Schwar M) (Tensor 2 4 Float) := sorry
+protected def Schwar.g (M : Float) : Vector Float 4 → Tensor 2 4 Float
+  | ⟨[t,r,θ,φ], Eq.refl _⟩ => open Float in Tensor.fromList 4
+    ( [ [ - (1 - 2 * M/r), 0              , 0     , 0               ]
+      , [ 0              , 1 / (1 - 2*M/r), 0     , 0               ]
+      , [ 0              , 0              , r ^ 2 , 0               ]
+      , [ 0              , 0              , 0     , r^2 * (sin θ)^2 ]
+      ]
+    : List (List Float))
+
+def Schwar.metric : Vector Float 4 × Schwar M → Tensor 2 4 Float
+  | ⟨p, Schwar.Schwarzschild⟩ => Schwar.g M p
+  | ⟨_, Watcher pos _⟩        => Schwar.g M pos
