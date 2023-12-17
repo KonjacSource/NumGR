@@ -1,6 +1,6 @@
 // Lean compiler output
 // Module: Manifold.Types
-// Imports: Init Mathlib Manifold.Tensor
+// Imports: Init Mathlib.Data.Vector Mathlib.Data.List.Defs Manifold.Tensor
 #include <lean/lean.h>
 #if defined(__clang__)
 #pragma clang diagnostic ignored "-Wunused-parameter"
@@ -269,7 +269,7 @@ static lean_object* _init_l_instToStringRay___rarg___closed__1() {
 _start:
 {
 lean_object* x_1; 
-x_1 = lean_mk_string_from_bytes("Ray - from ", 11);
+x_1 = lean_mk_string_from_bytes("Ray - at ", 9);
 return x_1;
 }
 }
@@ -1881,7 +1881,8 @@ return x_2;
 }
 }
 lean_object* initialize_Init(uint8_t builtin, lean_object*);
-lean_object* initialize_Mathlib(uint8_t builtin, lean_object*);
+lean_object* initialize_Mathlib_Data_Vector(uint8_t builtin, lean_object*);
+lean_object* initialize_Mathlib_Data_List_Defs(uint8_t builtin, lean_object*);
 lean_object* initialize_Manifold_Tensor(uint8_t builtin, lean_object*);
 static bool _G_initialized = false;
 LEAN_EXPORT lean_object* initialize_Manifold_Types(uint8_t builtin, lean_object* w) {
@@ -1891,7 +1892,10 @@ _G_initialized = true;
 res = initialize_Init(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
-res = initialize_Mathlib(builtin, lean_io_mk_world());
+res = initialize_Mathlib_Data_Vector(builtin, lean_io_mk_world());
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = initialize_Mathlib_Data_List_Defs(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 res = initialize_Manifold_Tensor(builtin, lean_io_mk_world());

@@ -1,4 +1,5 @@
-import Mathlib
+import Mathlib.Data.Vector
+import Mathlib.Data.List.Defs
 import Manifold.Tensor
 
 /-- A computible "manifold". The `Chart` is just a Type of tags. -/
@@ -53,7 +54,7 @@ open Tensor
 
 /-- Coordinate derivative, `dir` to choose a direction. -/
 def chartDv [Manifold Chart R dim] [Derivable R T] (f : FieldM Chart T) (dir : Fin dim) : FieldM Chart T
-  := fun ⟨ p, chart ⟩ => (λ x ↦ f ⟨⟨p.val.set dir.val x, by simp⟩, chart⟩)’ (p.get dir)
+  := fun ⟨ p, chart ⟩ => (λ x ↦ f ⟨⟨p.val.set dir.val x, by simp; apply p.property⟩, chart⟩)’ (p.get dir)
 
 
 def genConnect [Floating R] [Manifold Chart R dim]
@@ -70,13 +71,11 @@ def genMdv [Floating R] [Manifold Chart R dim] (connect : FieldM Chart (Tensor 3
   (vec : FieldM Chart (Tensor 1 dim R)) : FieldM Chart (Tensor 2 dim R)
   := fun pos => fun ⟨ [μ, ν] , _ ⟩ =>
     chartDv (fun p' => vec p' ⟨[ν],by simp⟩) μ pos
-      + sum[
-        connect pos ⟨[ν,μ,σ],by simp⟩ * vec pos ⟨[σ],by simp⟩
-      | σ < dim ]
+      + sum[ connect pos ⟨[ν,μ,σ],by simp⟩ * vec pos ⟨[σ],by simp⟩ | σ < dim ]
 
 def genNextRay [Floating R] [Manifold Chart R dim] (connect : FieldM Chart (Tensor 3 dim R))
   (ε : R)  (ray : Ray Chart) : Option (Ray Chart)
-  := let nextPos := fromList dim ray.position.1.val + ε * ray.direction;
+  := let nextPos := fromList dim (n:=1) ray.position.fst.val + ε * ray.direction;
      let nextDir : Tensor 1 dim R := fun ⟨[μ], _ ⟩ =>
         ray.direction ⟨[μ], by simp⟩
       - ε * sum[ sum[

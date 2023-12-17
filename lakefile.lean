@@ -14,3 +14,11 @@ lean_lib «NumGR» {
 }
 
 lean_lib «Manifold» {}
+
+lean_lib «Predefs» {}
+
+
+@[default_target]
+lean_exe «numGR» {
+  root := `Manifold.Schwarzschild
+}

@@ -8,4 +8,4 @@ variable
   {dim : Nat}
   [Manifold Chart R dim]
 
-def traceRay (ray : Ray Chart) (t : R) : ChartedPoint Chart := sorry
+-- def traceRay (ray : Ray Chart) (t : R) : ChartedPoint Chart := sorry

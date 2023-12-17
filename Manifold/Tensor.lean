@@ -1,8 +1,7 @@
-import Mathlib
-
+import Mathlib.Data.Vector
+import Mathlib.Data.List.Defs
 
 def Tensor (rank : Nat) (dim : Nat) (R : Type u) : Type u := Vector (Fin dim) rank → R
-
 
 
 namespace Tensor
@@ -20,16 +19,24 @@ class Floating (R : Type u)
 
 
 instance : Floating Float where
-  eps := 1e-4
-  dv f x := let ε := 1e-4; (f (x + ε/2) - f (x - ε/2)) / ε
+  eps := 1e-3
+  dv f x := let ε := 1e-3; (f (x + ε/2) - f (x - ε/2)) / ε
 
 
 def Vector.Functor : Functor (fun x => Vector x n) where
-  map f ls := ⟨ Functor.map f ls.val, by simp ⟩
+  map f ls := ⟨ Functor.map f ls.val, by
+    cases ls
+    simp [Functor.map]
+    assumption
+  ⟩
 
 def Vector.Applicative : Applicative (fun x => Vector x n) where
   pure x := ⟨List.replicate n x , by simp ⟩
-  seq f ls := ⟨ List.map (fun (f, x) => f x) $ List.zip f.val (ls ()).val , by simp ⟩
+  seq f ls := ⟨ List.map (fun (f, x) => f x) $ List.zip f.val (ls ()).val , by
+    simp
+    rw [f.property, (ls ()).property]
+    simp
+  ⟩
 
 instance : Functor (Tensor rank dim) where
   map f t := fun v => f $ t v
@@ -97,7 +104,10 @@ lemma finRangeNum : (n : Nat) → List.length (finRange n) = n
 def toList : {n : Nat} → Tensor n dim R → applyN List n R
   | 0    , t => t ⟨ [], by rfl ⟩
   | n + 1, t => List.map (fun i => toList fun v =>
-        t ⟨ i :: v.val , by simp ⟩
+        t ⟨ i :: v.val , by
+            simp
+            apply v.property
+          ⟩
       ) $ finRange dim
 
 theorem toListLengthDim {tensor : Tensor (n+1) dim R} : List.length (toList tensor) = dim :=

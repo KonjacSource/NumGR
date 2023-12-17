@@ -1,7 +1,7 @@
-import Mathlib
+import Mathlib.Data.Vector
 import Manifold.Tensor
 import Manifold.Types
-
+#check Vector
 /-- A Schwarzschild coordinate system with given mass `M` of the central star. -/
 inductive Schwar (M : Float) where
   /-- (t ∈ ℝ, r > 2*M, θ ∈ ℝ , φ ∈ ℝ) in ISO, the range of θ and φ are kind of ticky here.   -/
@@ -125,6 +125,14 @@ instance [Repr T] : Repr (Option T) where
     | none => Std.Format.text "none"
     | some x => (Std.Format.text "some ").append (reprPrec x n)
 
-#eval Schwar.nextRay Floating.eps testRay
+  partial def helper (ray : Ray (Schwar M)) (now : Float) (l : Float) := if now <= l then
+    match Schwar.nextRay Floating.eps ray with
+    | none => ray
+    | some ray' => helper ray' (now + Floating.eps) l
+  else ray
+
+def trace (ray : Ray (Schwar M)) (l : Float) : Ray (Schwar M) := helper ray 0 l
+
+def main (args : List String) : IO Unit := IO.println "hello"
 
 end Test

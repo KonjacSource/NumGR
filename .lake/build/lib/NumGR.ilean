@@ -1,0 +1,1 @@
+{"version":1,"references":{"c:Vector":{"usages":[[3,7,3,13]],"definition":null},"c:Monad":{"usages":[[4,7,4,12]],"definition":null},"c:CategoryTheory.Category":{"usages":[[2,7,2,30]],"definition":null}},"module":"NumGR"}
