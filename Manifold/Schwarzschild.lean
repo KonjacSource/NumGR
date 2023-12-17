@@ -71,13 +71,42 @@ instance : Manifold (Schwar M) Float 4 where
 
 protected def Schwar.g (M : Float) : Vector Float 4 → Tensor 2 4 Float
   | ⟨[t,r,θ,φ], Eq.refl _⟩ => open Float in Tensor.fromList 4
-    ( [ [ - (1 - 2 * M/r), 0              , 0     , 0               ]
-      , [ 0              , 1 / (1 - 2*M/r), 0     , 0               ]
-      , [ 0              , 0              , r ^ 2 , 0               ]
-      , [ 0              , 0              , 0     , r^2 * (sin θ)^2 ]
+    ( [ [ - (1 - 2 * M/r), 0              , 0       , 0                     ]
+      , [ 0              , 1 / (1 - 2*M/r), 0       , 0                     ]
+      , [ 0              , 0              , r ^ 2   , 0                     ]
+      , [ 0              , 0              , 0       , r^2 * (sin θ)^2       ]
       ]
     : List (List Float))
 
 def Schwar.metric : Vector Float 4 × Schwar M → Tensor 2 4 Float
   | ⟨p, Schwar.Schwarzschild⟩ => Schwar.g M p
   | ⟨_, Watcher pos _⟩        => Schwar.g M pos
+
+protected def Schwar.gInv (M : Float) : Vector Float 4 → Tensor 2 4 Float
+  | ⟨[t,r,θ,φ], Eq.refl _⟩ => open Float in Tensor.fromList 4
+    ( [ [ r / (2*M - r)  , 0              , 0       , 0                     ]
+      , [ 0              , 1 - 2*M / r    , 0       , 0                     ]
+      , [ 0              , 0              , 1 / r^2 , 0                     ]
+      , [ 0              , 0              , 0       , 1 / (r^2 * (sin θ)^2) ]
+      ]
+    : List (List Float))
+
+def Schwar.metricInv : Vector Float 4 × Schwar M → Tensor 2 4 Float
+  | ⟨p, Schwar.Schwarzschild⟩ => Schwar.gInv M p
+  | ⟨_, Watcher pos _⟩        => Schwar.gInv M pos
+
+def Schwar.connect : FieldM (Schwar M) (Tensor 3 4 Float)
+  := genConnect Schwar.metric Schwar.metricInv
+
+def Schwar.mdv : FieldM (Schwar M) (Tensor 1 4 Float) → FieldM (Schwar M) (Tensor 2 4 Float)
+  := genMdv Schwar.connect
+
+def Schwar.nextRay : Float → Ray (Schwar M) → Option (Ray (Schwar M))
+  := genNextRay Schwar.connect
+
+instance : RieManifold (Schwar M) Float 4 where
+  metric    := Schwar.metric
+  metricInv := Schwar.metricInv
+  connect   := Schwar.connect
+  mdv       := Schwar.mdv
+  nextRay   :=Schwar.nextRay
