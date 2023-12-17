@@ -108,6 +108,7 @@ by
 
 lemma lengthSuc : List.length (x :: xs) = n + 1 → List.length xs = n := by simp
 
+/-- This function may require specify `R`.-/
 def fromList [Inhabited R] (dim : Nat) : {n : Nat} → applyN List n R → Tensor n dim R
   | 0    , x => fun _ => x
   | _ + 1, ls => fun ⟨ x :: xs , prf ⟩ => match ls.get? x with

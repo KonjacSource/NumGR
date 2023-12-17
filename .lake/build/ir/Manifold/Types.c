@@ -14,12 +14,14 @@
 extern "C" {
 #endif
 LEAN_EXPORT lean_object* l_chartDv___at_genConnect___spec__2___boxed(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_List_toString___at_instReprRay___spec__1___rarg(lean_object*, lean_object*);
 lean_object* lean_mk_empty_array_with_capacity(lean_object*);
 LEAN_EXPORT lean_object* l_List_mapTR_loop___at_genConnect___spec__4(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_List_foldl___at_instReprRay___spec__2___rarg(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_genNextRay___rarg___lambda__1___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_genNextRay___rarg___lambda__2___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 extern uint8_t l_instDecidableTrue;
-LEAN_EXPORT lean_object* l_instToStringRay___rarg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_instToStringRay___rarg___boxed(lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_genMdv___rarg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 static lean_object* l_instToStringRay___rarg___closed__1;
 LEAN_EXPORT lean_object* l_List_mapTR_loop___at_genConnect___spec__4___rarg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
@@ -42,9 +44,12 @@ lean_object* l_List_setTR_go___rarg(lean_object*, lean_object*, lean_object*, le
 LEAN_EXPORT lean_object* l_genConnect___rarg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_List_mapTR_loop___at_genNextRay___spec__2(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_genNextRay___rarg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_List_foldl___at_instReprRay___spec__2(lean_object*);
 LEAN_EXPORT uint8_t l_List_beq___at_Cartesian_instManifoldCartesianFloat___spec__1(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_List_toString___at_instReprRay___spec__1(lean_object*);
 LEAN_EXPORT lean_object* l_chartDv___at_genMdv___spec__1___rarg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_List_foldl___at_instToStringRay___spec__2(lean_object*);
+LEAN_EXPORT lean_object* l_instReprRay___rarg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_chartDv___at_genConnect___spec__3___boxed(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_chartDv___at_genConnect___spec__3(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_List_toString___at_instToStringRay___spec__1(lean_object*);
@@ -86,6 +91,7 @@ LEAN_EXPORT lean_object* l_instToStringVector___rarg(lean_object*, lean_object*)
 LEAN_EXPORT lean_object* l_chartDv___at_genConnect___spec__1___boxed(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_genNextRay___rarg___lambda__2(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT uint8_t l_Cartesian_instManifoldCartesianFloat___lambda__2(lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_instReprRay___rarg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_chartDv___at_genConnect___spec__1___rarg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_List_mapTR_loop___at_genNextRay___spec__1(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_genNextRay(lean_object*, lean_object*);
@@ -95,6 +101,7 @@ LEAN_EXPORT lean_object* l_chartDv___at_genMdv___spec__1___boxed(lean_object*, l
 LEAN_EXPORT lean_object* l_List_mapTR_loop___at_genMdv___spec__2(lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_List_mapTR_loop___at_genNextRay___spec__1___rarg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 lean_object* l_List_foldl___at_List_sum___spec__1___rarg(lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_instReprRay(lean_object*, lean_object*);
 lean_object* l_Tensor_toList(lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_chartDv___at_genMdv___spec__1___rarg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_chartDv___at_genConnect___spec__2___rarg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
@@ -106,7 +113,7 @@ LEAN_EXPORT lean_object* l_List_mapTR_loop___at_genNextRay___spec__1___rarg(lean
 static lean_object* l_List_toString___at_instToStringRay___spec__1___rarg___closed__3;
 LEAN_EXPORT lean_object* l_List_toString___at_instToStringRay___spec__1___rarg(lean_object*, lean_object*);
 static lean_object* l_chartDv___rarg___lambda__1___closed__1;
-LEAN_EXPORT lean_object* l_instToStringRay___rarg(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
+LEAN_EXPORT lean_object* l_instToStringRay___rarg(lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_List_mapTR_loop___at_genMdv___spec__2___rarg___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_chartDv___rarg(lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_instToStringVector___rarg(lean_object* x_1, lean_object* x_2) {
@@ -282,23 +289,162 @@ x_1 = lean_mk_string_from_bytes(" - ", 3);
 return x_1;
 }
 }
-LEAN_EXPORT lean_object* l_instToStringRay___rarg(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5) {
+LEAN_EXPORT lean_object* l_instToStringRay___rarg(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
 _start:
 {
-lean_object* x_6; lean_object* x_7; lean_object* x_8; lean_object* x_9; lean_object* x_10; lean_object* x_11; lean_object* x_12; lean_object* x_13; lean_object* x_14; lean_object* x_15; lean_object* x_16; lean_object* x_17; lean_object* x_18; lean_object* x_19; 
-x_6 = lean_ctor_get(x_5, 0);
+lean_object* x_5; lean_object* x_6; lean_object* x_7; lean_object* x_8; lean_object* x_9; lean_object* x_10; lean_object* x_11; lean_object* x_12; lean_object* x_13; lean_object* x_14; lean_object* x_15; lean_object* x_16; lean_object* x_17; lean_object* x_18; 
+x_5 = lean_ctor_get(x_4, 0);
+lean_inc(x_5);
+x_6 = lean_ctor_get(x_4, 1);
 lean_inc(x_6);
-x_7 = lean_ctor_get(x_5, 1);
+lean_dec(x_4);
+x_7 = lean_ctor_get(x_5, 0);
 lean_inc(x_7);
 lean_dec(x_5);
+x_8 = lean_unsigned_to_nat(1u);
+x_9 = l_Tensor_toList(x_1, lean_box(0), x_8, x_6);
+lean_inc(x_3);
+x_10 = l_List_toString___at_instToStringRay___spec__1___rarg(x_3, x_9);
+x_11 = l_List_toString___rarg(x_3, x_7);
+x_12 = l_instToStringRay___rarg___closed__1;
+x_13 = lean_string_append(x_12, x_11);
+lean_dec(x_11);
+x_14 = l_instToStringRay___rarg___closed__2;
+x_15 = lean_string_append(x_13, x_14);
+x_16 = lean_string_append(x_15, x_10);
+lean_dec(x_10);
+x_17 = l_instToStringRay___rarg___closed__3;
+x_18 = lean_string_append(x_16, x_17);
+return x_18;
+}
+}
+LEAN_EXPORT lean_object* l_instToStringRay(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+lean_object* x_3; 
+x_3 = lean_alloc_closure((void*)(l_instToStringRay___rarg___boxed), 4, 0);
+return x_3;
+}
+}
+LEAN_EXPORT lean_object* l_instToStringRay___rarg___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4) {
+_start:
+{
+lean_object* x_5; 
+x_5 = l_instToStringRay___rarg(x_1, x_2, x_3, x_4);
+lean_dec(x_2);
+lean_dec(x_1);
+return x_5;
+}
+}
+LEAN_EXPORT lean_object* l_List_foldl___at_instReprRay___spec__2___rarg(lean_object* x_1, lean_object* x_2, lean_object* x_3) {
+_start:
+{
+if (lean_obj_tag(x_3) == 0)
+{
+lean_dec(x_1);
+return x_2;
+}
+else
+{
+lean_object* x_4; lean_object* x_5; lean_object* x_6; lean_object* x_7; lean_object* x_8; lean_object* x_9; 
+x_4 = lean_ctor_get(x_3, 0);
+lean_inc(x_4);
+x_5 = lean_ctor_get(x_3, 1);
+lean_inc(x_5);
+lean_dec(x_3);
+x_6 = l_List_foldl___at_instToStringRay___spec__2___rarg___closed__1;
+x_7 = lean_string_append(x_2, x_6);
+lean_inc(x_1);
+x_8 = lean_apply_1(x_1, x_4);
+x_9 = lean_string_append(x_7, x_8);
+lean_dec(x_8);
+x_2 = x_9;
+x_3 = x_5;
+goto _start;
+}
+}
+}
+LEAN_EXPORT lean_object* l_List_foldl___at_instReprRay___spec__2(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; 
+x_2 = lean_alloc_closure((void*)(l_List_foldl___at_instReprRay___spec__2___rarg), 3, 0);
+return x_2;
+}
+}
+LEAN_EXPORT lean_object* l_List_toString___at_instReprRay___spec__1___rarg(lean_object* x_1, lean_object* x_2) {
+_start:
+{
+if (lean_obj_tag(x_2) == 0)
+{
+lean_object* x_3; 
+lean_dec(x_1);
+x_3 = l_List_toString___at_instToStringRay___spec__1___rarg___closed__1;
+return x_3;
+}
+else
+{
+lean_object* x_4; 
+x_4 = lean_ctor_get(x_2, 1);
+lean_inc(x_4);
+if (lean_obj_tag(x_4) == 0)
+{
+lean_object* x_5; lean_object* x_6; lean_object* x_7; lean_object* x_8; lean_object* x_9; lean_object* x_10; 
+x_5 = lean_ctor_get(x_2, 0);
+lean_inc(x_5);
+lean_dec(x_2);
+x_6 = lean_apply_1(x_1, x_5);
+x_7 = l_List_toString___at_instToStringRay___spec__1___rarg___closed__2;
+x_8 = lean_string_append(x_7, x_6);
+lean_dec(x_6);
+x_9 = l_List_toString___at_instToStringRay___spec__1___rarg___closed__3;
+x_10 = lean_string_append(x_8, x_9);
+return x_10;
+}
+else
+{
+lean_object* x_11; lean_object* x_12; lean_object* x_13; lean_object* x_14; lean_object* x_15; uint32_t x_16; lean_object* x_17; 
+x_11 = lean_ctor_get(x_2, 0);
+lean_inc(x_11);
+lean_dec(x_2);
+lean_inc(x_1);
+x_12 = lean_apply_1(x_1, x_11);
+x_13 = l_List_toString___at_instToStringRay___spec__1___rarg___closed__2;
+x_14 = lean_string_append(x_13, x_12);
+lean_dec(x_12);
+x_15 = l_List_foldl___at_instReprRay___spec__2___rarg(x_1, x_14, x_4);
+x_16 = 93;
+x_17 = lean_string_push(x_15, x_16);
+return x_17;
+}
+}
+}
+}
+LEAN_EXPORT lean_object* l_List_toString___at_instReprRay___spec__1(lean_object* x_1) {
+_start:
+{
+lean_object* x_2; 
+x_2 = lean_alloc_closure((void*)(l_List_toString___at_instReprRay___spec__1___rarg), 2, 0);
+return x_2;
+}
+}
+LEAN_EXPORT lean_object* l_instReprRay___rarg(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5) {
+_start:
+{
+lean_object* x_6; lean_object* x_7; lean_object* x_8; lean_object* x_9; lean_object* x_10; lean_object* x_11; lean_object* x_12; lean_object* x_13; lean_object* x_14; lean_object* x_15; lean_object* x_16; lean_object* x_17; lean_object* x_18; lean_object* x_19; lean_object* x_20; 
+x_6 = lean_ctor_get(x_4, 0);
+lean_inc(x_6);
+x_7 = lean_ctor_get(x_4, 1);
+lean_inc(x_7);
+lean_dec(x_4);
 x_8 = lean_ctor_get(x_6, 0);
 lean_inc(x_8);
 lean_dec(x_6);
 x_9 = lean_unsigned_to_nat(1u);
 x_10 = l_Tensor_toList(x_1, lean_box(0), x_9, x_7);
-lean_inc(x_4);
-x_11 = l_List_toString___at_instToStringRay___spec__1___rarg(x_4, x_10);
-x_12 = l_List_toString___rarg(x_4, x_8);
+lean_inc(x_3);
+x_11 = l_List_toString___at_instReprRay___spec__1___rarg(x_3, x_10);
+x_12 = l_List_toString___rarg(x_3, x_8);
 x_13 = l_instToStringRay___rarg___closed__1;
 x_14 = lean_string_append(x_13, x_12);
 lean_dec(x_12);
@@ -308,23 +454,25 @@ x_17 = lean_string_append(x_16, x_11);
 lean_dec(x_11);
 x_18 = l_instToStringRay___rarg___closed__3;
 x_19 = lean_string_append(x_17, x_18);
-return x_19;
+x_20 = lean_alloc_ctor(3, 1, 0);
+lean_ctor_set(x_20, 0, x_19);
+return x_20;
 }
 }
-LEAN_EXPORT lean_object* l_instToStringRay(lean_object* x_1, lean_object* x_2) {
+LEAN_EXPORT lean_object* l_instReprRay(lean_object* x_1, lean_object* x_2) {
 _start:
 {
 lean_object* x_3; 
-x_3 = lean_alloc_closure((void*)(l_instToStringRay___rarg___boxed), 5, 0);
+x_3 = lean_alloc_closure((void*)(l_instReprRay___rarg___boxed), 5, 0);
 return x_3;
 }
 }
-LEAN_EXPORT lean_object* l_instToStringRay___rarg___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5) {
+LEAN_EXPORT lean_object* l_instReprRay___rarg___boxed(lean_object* x_1, lean_object* x_2, lean_object* x_3, lean_object* x_4, lean_object* x_5) {
 _start:
 {
 lean_object* x_6; 
-x_6 = l_instToStringRay___rarg(x_1, x_2, x_3, x_4, x_5);
-lean_dec(x_3);
+x_6 = l_instReprRay___rarg(x_1, x_2, x_3, x_4, x_5);
+lean_dec(x_5);
 lean_dec(x_2);
 lean_dec(x_1);
 return x_6;

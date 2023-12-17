@@ -110,3 +110,21 @@ instance : RieManifold (Schwar M) Float 4 where
   connect   := Schwar.connect
   mdv       := Schwar.mdv
   nextRay   :=Schwar.nextRay
+
+
+namespace Test
+
+open Float Tensor
+def testRay : Ray (Schwar 1.0) := ⟨
+    ⟨⟨[0, 5, pi/2, 0.0] , by rfl⟩, Schwarzschild⟩,
+    fromList 4 ([1, -1, 0, 0] : List Float)
+  ⟩
+
+instance [Repr T] : Repr (Option T) where
+  reprPrec s n := match s with
+    | none => Std.Format.text "none"
+    | some x => (Std.Format.text "some ").append (reprPrec x n)
+
+#eval Schwar.nextRay Floating.eps testRay
+
+end Test

@@ -25,8 +25,11 @@ instance [ToString α] : ToString (Vector α n) where
   toString := fun ⟨l, _⟩ => l.toString
 
 
-instance [Manifold Chart R dim] [ToString Chart] [ToString R] : ToString (Ray Chart) where
-  toString := fun ⟨p, d⟩ => s!"Ray - from {p.1} toward {d} - "
+instance [Manifold Chart R dim] [ToString R] : ToString (Ray Chart) where
+  toString := fun ⟨p, d⟩ => s!"Ray - at {p.1} toward {d} - "
+
+instance [Manifold Chart R dim] [ToString R] : Repr (Ray Chart) where
+  reprPrec s _ := Std.Format.text $ toString s
 
 open Manifold
 
@@ -43,6 +46,7 @@ class RieManifold (Chart : Type u) (R : outParam (Type v)) (dim : outParam Nat) 
   connect         : FieldM Chart (Tensor 3 dim R)
   /-- Covarint derivative, only works on vector field (not dual vector). -/
   mdv             : FieldM Chart (Tensor 1 dim R) → FieldM Chart (Tensor 2 dim R)
+  /-- Determine the next ray. -/
   nextRay         : (ε : R) → Ray Chart → Option (Ray Chart)
 
 open Tensor
