@@ -1,84 +1,5 @@
 -- import Mathlib
 
-/-!
-The type `Vector` represents lists with fixed length.
--/
-
-universe u v w
-/-- `Vector α n` is the type of lists of length `n` with elements of type `α`. -/
-def Vector (α : Type u) (n : Nat) :=
-  { l : List α // l.length = n }
-
-namespace Vector
-
-variable {α : Type u} {β : Type v} {φ : Type w}
-
-variable {n : Nat}
-
-instance [DecidableEq α] : DecidableEq (Vector α n) :=
-  inferInstanceAs (DecidableEq {l : List α // l.length = n})
-
-/-- The empty vector with elements of type `α` -/
-@[match_pattern]
-def nil : Vector α 0 :=
-  ⟨[], rfl⟩
-
-/-- If `a : α` and `l : Vector α n`, then `cons a l`, is the vector of length `n + 1`
-whose first element is a and with l as the rest of the list. -/
-@[match_pattern]
-def cons : α → Vector α n → Vector α (Nat.succ n)
-  | a, ⟨v, h⟩ => ⟨a :: v, congrArg Nat.succ h⟩
-
-
-/-- The length of a vector. -/
-@[reducible]
-def length (_ : Vector α n) : Nat :=
-  n
-
-open Nat
-
-/-- The first element of a vector with length at least `1`. -/
-def head : Vector α (Nat.succ n) → α
-  | ⟨[], h⟩ => by contradiction
-  | ⟨a :: _, _⟩ => a
-
-/-- The head of a vector obtained by prepending is the element prepended. -/
-theorem head_cons (a : α) : ∀ v : Vector α n, head (cons a v) = a
-  | ⟨_, _⟩ => rfl
-
-/-- The tail of a vector, with an empty vector having empty tail.  -/
-def tail : Vector α n → Vector α (n - 1)
-  | ⟨[], h⟩ => ⟨[], congrArg pred h⟩
-  | ⟨_ :: v, h⟩ => ⟨v, congrArg pred h⟩
-
-/-- The tail of a vector obtained by prepending is the vector prepended. to -/
-theorem tail_cons (a : α) : ∀ v : Vector α n, tail (cons a v) = v
-  | ⟨_, _⟩ => rfl
-
-/-- Prepending the head of a vector to its tail gives the vector. -/
-@[simp]
-theorem cons_head_tail : ∀ v : Vector α (succ n), cons (head v) (tail v) = v
-  | ⟨[], h⟩ => by contradiction
-  | ⟨a :: v, h⟩ => rfl
-
-/-- The list obtained from a vector. -/
-def toList (v : Vector α n) : List α :=
-  v.1
-
--- porting notes: align to `List` API
-/-- nth element of a vector, indexed by a `Fin` type. -/
-def get : ∀ _ : Vector α n, Fin n → α
-  | ⟨l, h⟩, i => l.get (by
-    rw [h.symm] at i
-    exact i
-  )
-
-/-- Appending a vector to another. -/
-def append {n m : Nat} : Vector α n → Vector α m → Vector α (n + m)
-  | ⟨l₁, h₁⟩, ⟨l₂, h₂⟩ => ⟨l₁ ++ l₂, by simp [*]⟩
-
-end Vector
-
 class Zero (α : Type u) where
   zero : α
 
@@ -91,29 +12,134 @@ class One (α : Type u) where
 instance [One α] : OfNat α 1 where
   ofNat := One.one
 
+instance : Zero Float where
+  zero := 0.0
+
+instance : One Float where
+  one := 1.0
 
 def List.sum [Add α] [Zero α] : List α → α :=
   foldl (· + ·) 0
 
+
+
 @[simp]
 theorem length_map : List.length (List.map f ls) = List.length ls := by simp
 
--- open Nat
--- theorem min_succ {n m : Nat} : min (succ n) (succ m) = succ (min n m) := match n, m with
---   | 0, m => by cases m ; rfl; rfl
---   | n + 1, 0 => by rfl
---   | n + 1, m + 1 => by
---     rw [(min_succ (n:=n) (m:=m))]
---     simp[ite]
+open Nat
+
+@[simp]
+def min' : Nat → Nat → Nat
+  | zero, _ => zero
+  | _, zero => zero
+  | succ n, succ m => succ (min' n m)
+
+@[simp]
+def min_same : min' n n = n :=
+by
+  cases n
+  simp
+  simp
+  apply min_same
+
+theorem lt_add_right {x n k : Nat} (prf : x < n) : x < n + k :=
+by
+  match k with
+  | 0 => exact prf
+  | succ k' =>
+      apply Nat.le.step
+      apply lt_add_right
+      exact prf
 
 
--- @[simp]
--- theorem length_zip : (List.zip a b).length = min (a.length) (b.length) :=
--- by
---   cases a
---   cases b
---   rfl
---   rfl
---   cases b
---   rfl
---   simp
+@[simp]
+theorem length_zip : (List.zip a b).length = min' (a.length) (b.length) :=
+by
+  cases a
+  cases b
+  rfl
+  rfl
+  cases b
+  rfl
+  simp[List.zip, List.zipWith]
+  apply length_zip
+
+universe u v w
+
+inductive Vector : (α : Type u) → Nat → Type u where
+  | nil : Vector α 0
+  | cons : α → Vector α n → Vector α (n+1)
+
+infixr:67 " #: " => Vector.cons
+
+namespace Vector
+
+@[simp]
+theorem lt_succ : succ m < succ n → m < n := Nat.le_of_succ_le_succ
+
+def mk (ls : List α) (prf : ls.length = n) : Vector α n := match n, ls with
+  | 0, [] => nil
+  | n + 1, (x::xs) => x #: mk xs (by {simp at prf; exact prf})
+
+def get : Vector α n → Fin n → α
+  | x#:_, ⟨zero,_⟩ => x
+  | _#:xs, ⟨i+1,f⟩ => get xs ⟨i, lt_succ f⟩
+
+def set : Vector α n → Fin n → α → Vector α n
+  | _#:xs, ⟨zero, _⟩, x' => x' #: xs
+  | x#:xs, ⟨i+1, f⟩ , x' => x #: set xs ⟨i, lt_succ f⟩ x'
+
+def replicate (n : Nat) (x : α) : Vector α n := match n with
+  | 0 => nil
+  | n+1 => x #: replicate n x
+
+def zip : Vector α n → Vector β n → Vector (α × β) n
+  | nil, nil => nil
+  | x#:xs,y#:ys => (x,y) #: zip xs ys
+
+def map (f : α → β) : Vector α n → Vector β n
+  | nil => nil
+  | x#:xs => f x #: map f xs
+
+def toList : Vector α n → List α
+  | nil => List.nil
+  | x#:xs => x :: xs.toList
+
+def pure (x : α) : Vector α n := replicate n x
+
+def seq (f : Vector (α → β) n) (ls : Unit → Vector α n) : Vector β n
+  := map (fun (f,x) => f x) $ zip f (ls ())
+
+def concat : Vector α n → α → Vector α (n+1)
+  | nil , a => a #: nil
+  | x#:xs, a => x #: xs.concat a
+
+def Vector.Functor : Functor (fun x => Vector x n) where
+  map := map
+
+def Applicative : Applicative (fun x => Vector x n) where
+  pure := pure
+  seq  := seq
+
+def eq [BEq α] : Vector α n → Vector α n → Bool
+  | nil, nil => True
+  | x#:xs, y#:ys => x == y && eq xs ys
+
+instance [BEq α] : BEq (Vector α n) where
+  beq := eq
+
+open Lean
+macro_rules
+  | `(![ $elems,* ]) => do
+    let rec expandVecLit (i : Nat) (skip : Bool) (result : TSyntax `term) : MacroM Syntax := do
+      match i, skip with
+      | 0,   _     => Pure.pure result
+      | i+1, true  => expandVecLit i false result
+      | i+1, false => expandVecLit i true  (← ``(Vector.cons $(⟨elems.elemsAndSeps.get! i⟩) $result))
+    let size := elems.elemsAndSeps.size
+    if size < 64 then
+      expandVecLit size (size % 2 == 0) (← ``(Vector.nil))
+    else
+      `(%[ $elems,* | Vector.nil ])
+
+end Vector

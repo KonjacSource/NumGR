@@ -1,5 +1,3 @@
-import Mathlib.Data.Vector
-import Mathlib.Data.List.Defs
 import Manifold.Tensor
 
 /-- A computible "manifold". The `Chart` is just a Type of tags. -/
@@ -23,7 +21,7 @@ structure Ray (Chart : Type u) [Manifold Chart R dim] where
   direction : Tensor 1 dim R
 
 instance [ToString α] : ToString (Vector α n) where
-  toString := fun ⟨l, _⟩ => l.toString
+  toString := fun l => l.toList.toString
 
 
 instance [Manifold Chart R dim] [ToString R] : ToString (Ray Chart) where
@@ -54,36 +52,37 @@ open Tensor
 
 /-- Coordinate derivative, `dir` to choose a direction. -/
 def chartDv [Manifold Chart R dim] [Derivable R T] (f : FieldM Chart T) (dir : Fin dim) : FieldM Chart T
-  := fun ⟨ p, chart ⟩ => (λ x ↦ f ⟨⟨p.val.set dir.val x, by simp; apply p.property⟩, chart⟩)’ (p.get dir)
+  := fun ⟨ p, chart ⟩ => (λ x ↦ f ⟨p.set dir x, chart⟩)’ (p.get dir)
 
 
 def genConnect [Floating R] [Manifold Chart R dim]
   (metric metricInv : FieldM Chart (Tensor 2 dim R)) : FieldM Chart (Tensor 3 dim R)
-  := fun pos@⟨ p, chart ⟩ => fun ⟨ [σ, μ, ν], _ ⟩ => open Floating RieManifold in half * sum[
-      metricInv ⟨ p, chart ⟩ ⟨ [σ, ρ], by simp ⟩ * (
-          chartDv (fun p' => metric p' ⟨ [ρ,μ], by simp ⟩) ν pos
-        + chartDv (fun p' => metric p' ⟨ [ν,ρ], by simp ⟩) μ pos
-        - chartDv (fun p' => metric p' ⟨ [μ,ν], by simp ⟩) ρ pos
+  := fun pos@⟨ p, chart ⟩ => fun ![σ, μ, ν] => open Floating RieManifold in half * sum[
+      (metricInv ⟨ p, chart ⟩ ![σ, ρ]) * (
+          chartDv (fun p' => metric p' ![ρ,μ]) ν pos
+        + chartDv (fun p' => metric p' ![ν,ρ]) μ pos
+        - chartDv (fun p' => metric p' ![μ,ν]) ρ pos
       )
   | ρ < dim ]
 
 def genMdv [Floating R] [Manifold Chart R dim] (connect : FieldM Chart (Tensor 3 dim R))
   (vec : FieldM Chart (Tensor 1 dim R)) : FieldM Chart (Tensor 2 dim R)
-  := fun pos => fun ⟨ [μ, ν] , _ ⟩ =>
-    chartDv (fun p' => vec p' ⟨[ν],by simp⟩) μ pos
-      + sum[ connect pos ⟨[ν,μ,σ],by simp⟩ * vec pos ⟨[σ],by simp⟩ | σ < dim ]
+  := fun pos => fun ![μ, ν]  =>
+    chartDv (fun p' => vec p' ![ν]) μ pos
+      + sum[ (connect pos ![ν,μ,σ]) * vec pos ![σ] | σ < dim ]
 
-def genNextRay [Floating R] [Manifold Chart R dim] (connect : FieldM Chart (Tensor 3 dim R))
+def genNextRay [Floating R] [Manifold Chart R dim] [ToString R]
+  (connect : FieldM Chart (Tensor 3 dim R))
   (ε : R)  (ray : Ray Chart) : Option (Ray Chart)
-  := let nextPos := fromList dim (n:=1) ray.position.fst.val + ε * ray.direction;
-     let nextDir : Tensor 1 dim R := fun ⟨[μ], _ ⟩ =>
-        ray.direction ⟨[μ], by simp⟩
+  := let nextPos := fromList dim (n:=1) ray.position.1.toList + ε * ray.direction;
+     let nextDir : Tensor 1 dim R := fun ![μ] =>
+        (ray.direction ![μ])
       - ε * sum[ sum[
-        connect ray.position ⟨[μ,ν,ρ] , by simp⟩
-          * ray.direction ⟨[ν],by simp⟩
-          * ray.direction ⟨[ρ],by simp⟩
+        (connect ray.position ![μ,ν,ρ])
+          * (ray.direction ![ν])
+          * (ray.direction ![ρ])
       | ν < dim ] | ρ < dim ];
-  match findChart ⟨ ⟨ toList nextPos, by apply toListLengthDim ⟩, ray.position.2 ⟩ with
+  match findChart ⟨ Vector.mk (toList nextPos) (by apply toListLengthDim), ray.position.2 ⟩ with
   | none => none
   | some pos => some ⟨ pos, nextDir ⟩
 
@@ -103,6 +102,6 @@ instance : Manifold (Cartesian dim) Float dim where
   inChart _ _ := True
   findChart := some
   chartTrans f _ := some f
-  pointEq x y := x.fst.val == y.fst.val
+  pointEq x y := x.fst == y.fst
 
 end Cartesian

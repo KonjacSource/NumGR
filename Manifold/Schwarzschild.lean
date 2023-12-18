@@ -1,7 +1,6 @@
-import Mathlib.Data.Vector
 import Manifold.Tensor
 import Manifold.Types
-#check Vector
+
 /-- A Schwarzschild coordinate system with given mass `M` of the central star. -/
 inductive Schwar (M : Float) where
   /-- (t ∈ ℝ, r > 2*M, θ ∈ ℝ , φ ∈ ℝ) in ISO, the range of θ and φ are kind of ticky here.   -/
@@ -23,19 +22,19 @@ partial def floatMod (x : Float) (n : Float): Float :=
 
 /-- Make a θ and φ in the regular range. -/
 def sphericalRegularize : Vector Float 4 → Vector Float 4
-| ⟨[t,r,θ,φ], Eq.refl _⟩ => open Float in
+| ![t,r,θ,φ]=> open Float in
     if 0 <= θ && θ <= pi then
-      ⟨[t,r,θ,floatMod φ (2 * pi)], Eq.refl _⟩
+      ![t,r,θ,floatMod φ (2 * pi)]
     else let θ' := floatMod θ (2 * pi) ;
       if θ' > pi then
-        ⟨[t,r,2 * pi - θ',floatMod (φ + pi) (2 * pi)], Eq.refl _⟩
-      else ⟨[t,r,θ',floatMod φ (2 * pi)], Eq.refl _⟩
+        ![t,r,2 * pi - θ',floatMod (φ + pi) (2 * pi)]
+      else ![t,r,θ',floatMod φ (2 * pi)]
 
 open Schwar
 
-/-- Every point in `Watcher` frame is considered be out of manifold, since it's a local frame. -/
+/-- Every point in `Watcher` frame is considered to be out of the manifold, since it's a local frame. -/
 def Schwar.isPoint : Vector Float 4 × Schwar M → Bool
-  | ⟨⟨[t,r,θ,φ], Eq.refl _⟩, Schwarzschild⟩ => r > 2 * M
+  | ⟨![t,r,θ,φ], Schwarzschild⟩ => r > 2 * M
   | _ => False
 
 /-- There are no points in the `Watcher` chart, since it's a local frame. -/
@@ -43,16 +42,16 @@ def Schwar.inChart (p : Vector Float 4 × Schwar M ) (f : Schwar M)
   := Schwar.isPoint p
 
 def Schwar.findChart : Vector Float 4 × Schwar M → Option (Vector Float 4 × Schwar M)
-  | ⟨x@⟨[t,r,θ,φ], Eq.refl _⟩  , Schwarzschild⟩ => some ⟨sphericalRegularize x, Schwarzschild⟩
-  | ⟨prop_coord@⟨[dt,dx,dy,dz], Eq.refl _⟩, Watcher pos axes⟩ => -- `prop_coord` is small.
+  | ⟨x@![t,r,θ,φ]  , Schwarzschild⟩ => let p := ⟨sphericalRegularize x, Schwarzschild⟩;
+    if isPoint p then some p else none
+  | ⟨prop_coord@![dt,dx,dy,dz], Watcher pos axes⟩ => -- `prop_coord` is small.
       if Schwar.isPoint ⟨pos, Schwarzschild (M:= M)⟩ then open Tensor in
         some ⟨
-          Vector.Applicative.seq (Vector.Functor.map (· + ·) pos) fun _ =>
-            ⟨ toList (n:=1) (dim:=4) sum[
-                prop_coord.get ix * axes.get ix
-              | ix < 4 ]
-            , by apply toListLengthDim ⟩
-        , Schwarzschild ⟩
+          Vector.Applicative.seq (Vector.map (· + ·) pos) fun _ =>
+              sum[
+                  prop_coord.get ix * axes.get ix
+              | ix < 4 ].toVec
+          , Schwarzschild ⟩
       else
         none
 
@@ -66,11 +65,11 @@ instance : Manifold (Schwar M) Float 4 where
     | _, (Watcher _ _) => none
   pointEq := fun
     | ⟨v1, Schwarzschild⟩, ⟨v2, Schwarzschild⟩ =>
-        (sphericalRegularize v1).val == (sphericalRegularize v2).val
+        sphericalRegularize v1 == sphericalRegularize v2
     | _, _ => False
 
 protected def Schwar.g (M : Float) : Vector Float 4 → Tensor 2 4 Float
-  | ⟨[t,r,θ,φ], Eq.refl _⟩ => open Float in Tensor.fromList 4
+  | ![t,r,θ,φ] => open Float in Tensor.fromList 4
     ( [ [ - (1 - 2 * M/r), 0              , 0       , 0                     ]
       , [ 0              , 1 / (1 - 2*M/r), 0       , 0                     ]
       , [ 0              , 0              , r ^ 2   , 0                     ]
@@ -83,7 +82,7 @@ def Schwar.metric : Vector Float 4 × Schwar M → Tensor 2 4 Float
   | ⟨_, Watcher pos _⟩        => Schwar.g M pos
 
 protected def Schwar.gInv (M : Float) : Vector Float 4 → Tensor 2 4 Float
-  | ⟨[t,r,θ,φ], Eq.refl _⟩ => open Float in Tensor.fromList 4
+  | ![t,r,θ,φ] => open Float in Tensor.fromList 4
     ( [ [ r / (2*M - r)  , 0              , 0       , 0                     ]
       , [ 0              , 1 - 2*M / r    , 0       , 0                     ]
       , [ 0              , 0              , 1 / r^2 , 0                     ]
@@ -111,28 +110,45 @@ instance : RieManifold (Schwar M) Float 4 where
   mdv       := Schwar.mdv
   nextRay   :=Schwar.nextRay
 
-
-namespace Test
-
 open Float Tensor
-def testRay : Ray (Schwar 1.0) := ⟨
-    ⟨⟨[0, 5, pi/2, 0.0] , by rfl⟩, Schwarzschild⟩,
-    fromList 4 ([1, -1, 0, 0] : List Float)
-  ⟩
 
 instance [Repr T] : Repr (Option T) where
   reprPrec s n := match s with
     | none => Std.Format.text "none"
     | some x => (Std.Format.text "some ").append (reprPrec x n)
 
-  partial def helper (ray : Ray (Schwar M)) (now : Float) (l : Float) := if now <= l then
-    match Schwar.nextRay Floating.eps ray with
+
+namespace Test
+
+
+def testRay : Ray (Schwar 1.0) := ⟨
+    ⟨![0, 10, pi/2, 0.0], Schwarzschild⟩,
+    fromList 4 ([1, -1, 0, 0] : List Float)
+  ⟩
+
+
+
+partial def helper (ray : Ray (Schwar M)) (now : Float) (l : Float) := if now <= l then
+    match Schwar.nextRay 0.01 ray with
     | none => ray
-    | some ray' => helper ray' (now + Floating.eps) l
+    | some ray' => helper ray' (now + 0.01) l
   else ray
 
 def trace (ray : Ray (Schwar M)) (l : Float) : Ray (Schwar M) := helper ray 0 l
 
-def main (args : List String) : IO Unit := IO.println "hello"
+-- #eval (Floating.half : Float)
+-- #eval Schwar.connect (M:=1.0) (testRay.position)
+-- #eval (Floating.eps : Float)
+-- #eval trace testRay 0.02
+-- #eval Schwar.nextRay 0.01 testRay >>= Schwar.nextRay 0.01 >>= Schwar.nextRay 0.01
+#eval (nextRay 0.01 (Ray.mk
+    ⟨
+  ![0.040080, 4.960026, 1.570796, 0.000000]
+    , Schwarzschild (M:=1.0)⟩
+    (fromList 4 (
+  [1.005384, -0.998283, 0.000000, 0.000000]
+    : List Float))
+))
+
 
 end Test

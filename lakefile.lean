@@ -20,5 +20,5 @@ lean_lib «Predefs» {}
 
 @[default_target]
 lean_exe «numGR» {
-  root := `Manifold.Schwarzschild
+  root := `NumGR
 }

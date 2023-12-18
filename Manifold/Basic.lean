@@ -1,6 +1,5 @@
 import Manifold.Types
 
-#check Manifold
 
 variable
   {Chart : Type u}
