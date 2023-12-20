@@ -131,7 +131,7 @@ def testRay : Ray (Schwar 1.0) := ⟨
 partial def helper (ray : Ray (Schwar M)) (now : Float) (l : Float) := if now <= l then
     match Schwar.nextRay 0.01 ray with
     | none => ray
-    | some ray' => helper ray' (now + 0.01) l
+    | some ⟨p, d⟩ => helper ⟨p, ⟦d⟧⟩ (now + 0.01) l
   else ray
 
 def trace (ray : Ray (Schwar M)) (l : Float) : Ray (Schwar M) := helper ray 0 l
@@ -139,7 +139,7 @@ def trace (ray : Ray (Schwar M)) (l : Float) : Ray (Schwar M) := helper ray 0 l
 -- #eval (Floating.half : Float)
 -- #eval Schwar.connect (M:=1.0) (testRay.position)
 -- #eval (Floating.eps : Float)
--- #eval trace testRay 0.02
+#eval trace testRay 3
 -- #eval Schwar.nextRay 0.01 testRay >>= Schwar.nextRay 0.01 >>= Schwar.nextRay 0.01
 #eval (nextRay 0.01 (Ray.mk
     ⟨

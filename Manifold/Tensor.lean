@@ -21,6 +21,7 @@ class Floating (R : Type u)
 
 
 instance : Floating Float where
+  half := 0.5
   eps := 1e-4
   dv f x := let ε := 1e-4; (f (x + ε/2) - f (x - ε/2)) / ε
 
@@ -116,7 +117,7 @@ by
   simp
   exact id
 
-/-- This function may require specify `R`.-/
+/-- This function may require specific `R`.-/
 def fromList [Inhabited R] (dim : Nat) : {n : Nat} → applyN List n R → Tensor n dim R
   | 0    , x => fun _ => x
   | _ + 1, ls => fun (x#:xs) => match ls.get? x with

@@ -917,10 +917,12 @@ return x_4;
 static double _init_l_Tensor_instFloatingFloat___closed__3() {
 _start:
 {
-double x_1; double x_2; 
-x_1 = l_Tensor_instFloatingFloat___closed__2;
-x_2 = lean_float_add(x_1, x_1);
-return x_2;
+lean_object* x_1; uint8_t x_2; lean_object* x_3; double x_4; 
+x_1 = lean_unsigned_to_nat(20u);
+x_2 = 1;
+x_3 = lean_unsigned_to_nat(1u);
+x_4 = l_Float_ofScientific(x_1, x_2, x_3);
+return x_4;
 }
 }
 static double _init_l_Tensor_instFloatingFloat___closed__4() {
@@ -1997,7 +1999,7 @@ _start:
 lean_object* x_1; lean_object* x_2; lean_object* x_3; lean_object* x_4; lean_object* x_5; lean_object* x_6; 
 x_1 = l_Tensor_fromList___rarg___closed__1;
 x_2 = l_Tensor_fromList___rarg___closed__2;
-x_3 = lean_unsigned_to_nat(123u);
+x_3 = lean_unsigned_to_nat(124u);
 x_4 = lean_unsigned_to_nat(14u);
 x_5 = l_Tensor_fromList___rarg___closed__3;
 x_6 = l___private_Init_Util_0__mkPanicMessageWithDecl(x_1, x_2, x_3, x_4, x_5);
