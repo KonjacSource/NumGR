@@ -17,8 +17,10 @@ lean_lib «Manifold» {}
 
 lean_lib «Predefs» {}
 
+lean_lib «World» {}
+
 
 @[default_target]
 lean_exe «numGR» {
-  root := `NumGR
+  root := `World.Shape
 }

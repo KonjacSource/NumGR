@@ -66,7 +66,7 @@ by
 
 universe u v w
 
-inductive Vector : (α : Type u) → Nat → Type u where
+inductive Vector (α : Type u) : Nat → Type u where
   | nil : Vector α 0
   | cons : α → Vector α n → Vector α (n+1)
 

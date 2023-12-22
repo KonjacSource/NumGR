@@ -1,6 +1,6 @@
 import Manifold.Tensor
 
-/-- A computible "manifold". The `Chart` is just a Type of tags. -/
+/-- A computible "manifold". The `Chart` is just a Type of tags. Each `chart : Chart` is a chart. -/
 class Manifold (Chart : Type u) (R : outParam (Type v)) (dim : outParam Nat) where
   /-- Is the point in the manifold? -/
   isPoint : (Vector R dim × Chart) → Bool
@@ -47,6 +47,9 @@ class RieManifold (Chart : Type u) (R : outParam (Type v)) (dim : outParam Nat) 
   mdv             : FieldM Chart (Tensor 1 dim R) → FieldM Chart (Tensor 2 dim R)
   /-- Determine the next ray. -/
   nextRay         : (ε : R) → Ray Chart → Option (Ray Chart)
+  /-- Adjustable `ε` -/
+  nextRay' (ε : Ray Chart → R) (ray : Ray Chart) : Option (Ray Chart)
+    := nextRay (ε ray) ray
 
 open Tensor
 
@@ -77,11 +80,11 @@ def genNextRay [Floating R] [Manifold Chart R dim] [ToString R]
   := let nextPos := fromList dim (n:=1) ray.position.1.toList + ε * ray.direction;
      let nextDir : Tensor 1 dim R := fun ![μ] =>
         (ray.direction ![μ])
-      - ε * sum[ sum[
-        (connect ray.position ![μ,ν,ρ])
-          * (ray.direction ![ν])
-          * (ray.direction ![ρ])
-      | ν < dim ] | ρ < dim ];
+          - ε * sum[ sum[
+            (connect ray.position ![μ,ν,ρ])
+              * (ray.direction ![ν])
+              * (ray.direction ![ρ])
+          | ν < dim ] | ρ < dim ];
   match findChart ⟨ Vector.mk (toList nextPos) (by apply toListLengthDim), ray.position.2 ⟩ with
   | none => none
   | some pos => some ⟨ pos, nextDir ⟩

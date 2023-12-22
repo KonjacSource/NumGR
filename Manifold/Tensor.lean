@@ -150,6 +150,12 @@ def dimension : Tensor rank d R → Nat := fun _ => d
 notation "sum[" x "|" i:max "<" n:max "]" => List.sum (List.map (fun i => x) (finRange n))
 -- Memorization
 notation "⟦" t "⟧" => Tensor.fromList (Tensor.dimension t) $ Tensor.toList t
+
+def withBasis [Floating R] (basis : Vector (Tensor 1 n R) n) (vec : Tensor 1 n R) : Tensor 1 n R :=
+  sum[
+    (vec ![i]) * basis.get i
+  | i < n ]
+
 namespace Test
 
 -- def tensor : Tensor 2 2 Float := fun ⟨ [x,y] , _ ⟩ => UInt64.toFloat $ UInt64.ofNatCore (x.val * y.val) sorry

@@ -12,13 +12,9 @@ deriving Repr
 def Float.pi := 3.14159265
 
 /-- Make `x` in range \( [0,n] \)  by adding or subtracting `n`. -/
-partial def floatMod (x : Float) (n : Float): Float :=
-  if x < 0 then
-    floatMod (x + n) n
-  else if x < n then
-    x
-  else
-    floatMod (x - n) n
+def floatMod (x : Float) (n : Float): Float :=
+  x - Float.floor (x / n) * n
+
 
 /-- Make a θ and φ in the regular range. -/
 def sphericalRegularize : Vector Float 4 → Vector Float 4
@@ -118,6 +114,15 @@ instance [Repr T] : Repr (Option T) where
     | some x => (Std.Format.text "some ").append (reprPrec x n)
 
 
+def toCartesian : Vector Float 4 → Vector Float 4
+  | ![t,r,θ,φ] => ![t, r * sin θ * cos φ, r * sin θ * sin φ, r * cos θ]
+
+
+instance : Inhabited (Ray (Schwar M)) where
+  default := Ray.mk
+    ⟨![0, 3*M, 0, 0] , Schwarzschild⟩
+    (fromList 4 ([0,0,0,0] : List Float))
+
 namespace Test
 
 
@@ -125,7 +130,6 @@ def testRay : Ray (Schwar 1.0) := ⟨
     ⟨![0, 10, pi/2, 0.0], Schwarzschild⟩,
     fromList 4 ([1, -1, 0, 0] : List Float)
   ⟩
-
 
 
 partial def helper (ray : Ray (Schwar M)) (now : Float) (l : Float) := if now <= l then
@@ -139,16 +143,16 @@ def trace (ray : Ray (Schwar M)) (l : Float) : Ray (Schwar M) := helper ray 0 l
 -- #eval (Floating.half : Float)
 -- #eval Schwar.connect (M:=1.0) (testRay.position)
 -- #eval (Floating.eps : Float)
-#eval trace testRay 3
+-- #eval trace testRay 3
 -- #eval Schwar.nextRay 0.01 testRay >>= Schwar.nextRay 0.01 >>= Schwar.nextRay 0.01
-#eval (nextRay 0.01 (Ray.mk
-    ⟨
-  ![0.040080, 4.960026, 1.570796, 0.000000]
-    , Schwarzschild (M:=1.0)⟩
-    (fromList 4 (
-  [1.005384, -0.998283, 0.000000, 0.000000]
-    : List Float))
-))
+-- #eval (nextRay 0.01 (Ray.mk
+--     ⟨
+--   ![0.040080, 4.960026, 1.570796, 0.000000]
+--     , Schwarzschild (M:=1.0)⟩
+--     (fromList 4 (
+--   [1.005384, -0.998283, 0.000000, 0.000000]
+--     : List Float))
+-- ))
 
 
 end Test
