@@ -8,6 +8,7 @@ variable
   {Chart : Type u1} {R : Type v1} {dim : Nat}
   [Manifold Chart R dim]
 
+/-- `Msg` contains the message of certain point.  -/
 def Shape (Chart : Type u1) (Msg : Type u) [Manifold Chart R dim]
   := ChartedPoint Chart → Option Msg
 
@@ -17,7 +18,7 @@ inductive TwoColor | Black | White deriving Repr, BEq
 
 def CheckerboardWallX (x δx rad : Float) (M : Float)  : Shape (Schwar M) TwoColor := fun
   | ⟨_, Schwar.Watcher _ _⟩   => none
-  | ⟨p, Schwarzschild⟩ => let ![_,x',y',z'] := toCartesian p;
+  | ⟨p, Schwar.SchwarzschildA⟩ => let ![_,x',y',z'] := toCartesianA p;
       if Float.abs (x - x') <= δx then
         some $
           let (y'', z'') := (floatMod y' (2*rad), floatMod z' (2*rad));
@@ -25,6 +26,14 @@ def CheckerboardWallX (x δx rad : Float) (M : Float)  : Shape (Schwar M) TwoCol
             TwoColor.Black
           else TwoColor.White
       else none
+  | ⟨p, Schwar.SchwarzschildB⟩ => let ![_,x',y',z'] := toCartesianB p;
+  if Float.abs (x - x') <= δx then
+    some $
+      let (y'', z'') := (floatMod y' (2*rad), floatMod z' (2*rad));
+      if y'' <= rad && z'' <= rad || y'' >= rad && z'' >= rad then
+        TwoColor.Black
+      else TwoColor.White
+  else none
 
 partial def helper (x δx rad ε limit : Float)
   (now : Float) (ray : Ray (Schwar M)) : Option TwoColor :=
@@ -77,7 +86,7 @@ def rangeInt (n : UInt64) : Array (Sum UInt64 UInt64) :=
   ) (List.map Sum.inl (List.reverse $ finRange (n.val.val-1)) ++ List.map Sum.inr (finRange n.val.val)).toArray
 
 def genRayX (M x : Float) (Δ : Float) (basis : Vector (Tensor 1 4 Float) 4) (i j : Sum UInt64 UInt64) (δy δz : Float) : Ray (Schwar M) :=
-  ⟨⟨![0,x,Float.pi/2,0], Schwar.Schwarzschild⟩,
+  ⟨⟨![0,x,Float.pi/2,0], Schwar.SchwarzschildA⟩,
     -- `-t` means trace the ray backward in time.
     let (x,y,z) := (Δ, toFloat i * δy, toFloat j * δz)
     withBasis basis $ fromList 4 ([Float.sqrt (x^2 + y^2 + z^2), x,y,z] : List Float)
@@ -102,7 +111,7 @@ def traceWithWallX (x δx rad ε limit : Float) (rays : Array (Array (Ray (Schwa
 --   #[     none ∎ ∎]]
 
 def testRay : Ray (Schwar 1) :=
-  ⟨ ⟨![0, 10, 1.570796,0], Schwar.Schwarzschild⟩
+  ⟨ ⟨![0, 10, 1.570796,0], Schwar.SchwarzschildA⟩
   , fromList 4 ([3.010399, -0.894427, 0.250000, 0.000000] : List Float)⟩
 
 def traceLs (ray : Ray (Schwar M)): Nat → List (Ray (Schwar M))
@@ -150,13 +159,12 @@ match ray.position with
 
 -- #eval traceLsWithSpec testRay strange 200
 
-#check System.FilePath
 
 def main : IO Unit := do
   let M := 1.0
   let camX := 6.0
   let (Δy, Δz) := (5.0,5.0)
-  let (m, n) := (240, 240)
+  let (m, n) := (20, 20)
   let wallX := -5.0
   let wallδX := 2.5
   let wallRad := 0.5
@@ -178,4 +186,7 @@ def main : IO Unit := do
     for j in List.range (rays.get! i).size do
       count := count + 1
       IO.println s!"tracing: {count}/{total}"
-      stm.putStrLn $ toColor $ traceWall wallX wallδX wallRad ε limit ((rays.get! i).get! j)
+      let res := traceWall wallX wallδX wallRad ε limit ((rays.get! i).get! j)
+      if res == none then
+        IO.println ((rays.get! i).get! j)
+      stm.putStrLn $ toColor res

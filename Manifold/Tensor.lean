@@ -156,6 +156,10 @@ def withBasis [Floating R] (basis : Vector (Tensor 1 n R) n) (vec : Tensor 1 n R
     (vec ![i]) * basis.get i
   | i < n ]
 
+instance [Inhabited β] : Inhabited (α → Tensor m n β) where
+  default := fun _ _ => default
+
+
 namespace Test
 
 -- def tensor : Tensor 2 2 Float := fun ⟨ [x,y] , _ ⟩ => UInt64.toFloat $ UInt64.ofNatCore (x.val * y.val) sorry

@@ -12,7 +12,10 @@ class Manifold (Chart : Type u) (R : outParam (Type v)) (dim : outParam Nat) whe
   chartTrans : (From : Vector R dim × Chart) → (To : Chart) → Option (Vector R dim × Chart)
   /-- Is same point? -/
   pointEq : (Vector R dim × Chart) → (Vector R dim × Chart) → Bool
-  -- chartTrans_to_right_chart : if let some p := chartTrans f t then p.snd = t else True
+  /-- `[ vecTrans (c,c') p ]^mu_nu = 𝜕x^mu / 𝜕x^nu' |_p` -/
+  vecTrans : Chart × Chart → (Vector R dim × Chart) → Tensor 2 dim R
+
+
 /-- A point is a coordinate with its chart. -/
 def ChartedPoint Chart [Manifold Chart R dim]  := Vector R dim × Chart
 
@@ -74,7 +77,7 @@ def genMdv [Floating R] [Manifold Chart R dim] (connect : FieldM Chart (Tensor 3
     chartDv (fun p' => vec p' ![ν]) μ pos
       + sum[ (connect pos ![ν,μ,σ]) * vec pos ![σ] | σ < dim ]
 
-def genNextRay [Floating R] [Manifold Chart R dim] [ToString R]
+def genNextRay [Floating R] [Manifold Chart R dim] [ToString R] [Mul R]
   (connect : FieldM Chart (Tensor 3 dim R))
   (ε : R)  (ray : Ray Chart) : Option (Ray Chart)
   := let nextPos := fromList dim (n:=1) ray.position.1.toList + ε * ray.direction;
@@ -87,7 +90,9 @@ def genNextRay [Floating R] [Manifold Chart R dim] [ToString R]
           | ν < dim ] | ρ < dim ];
   match findChart ⟨ Vector.mk (toList nextPos) (by apply toListLengthDim), ray.position.2 ⟩ with
   | none => none
-  | some pos => some ⟨ pos, nextDir ⟩
+  | some pos => some ⟨ pos, fun ![μ'] =>
+        sum[ Mul.mul (vecTrans (pos.2, ray.position.2) pos ![μ',μ]) (nextDir ![μ]) | μ < dim ]
+      ⟩ -- TODO: change vector nextDir to new frame
 
 -- class RieManifold (Chart : Type u) (R : outParam (Type v)) (dim : outParam Nat) extends Metric Chart R dim where
 --   connect := fun ⟨ p, chart ⟩ => fun ⟨ [σ, μ, ν], _ ⟩ => sorry
@@ -106,5 +111,6 @@ instance : Manifold (Cartesian dim) Float dim where
   findChart := some
   chartTrans f _ := some f
   pointEq x y := x.fst == y.fst
+  vecTrans _ _ := Tensor.delta
 
 end Cartesian

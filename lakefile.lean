@@ -22,5 +22,5 @@ lean_lib «World» {}
 
 @[default_target]
 lean_exe «numGR» {
-  root := `World.Shape
+  root := `NumGR
 }
