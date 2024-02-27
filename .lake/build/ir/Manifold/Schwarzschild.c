@@ -45,6 +45,7 @@ static lean_object* l_Schwar_findChart___closed__2;
 double lean_float_div(double, double);
 static lean_object* l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__3;
 LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Schwar_nextRay___spec__7___closed__2___boxed__const__1;
+static lean_object* l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__5;
 LEAN_EXPORT lean_object* l_Schwar_metric___boxed(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Schwar_nextRay___spec__7___closed__6___boxed__const__1;
 static double l_Schwar_isPoint___closed__4;
@@ -121,6 +122,7 @@ double lean_float_add(double, double);
 LEAN_EXPORT lean_object* l_Test_testRay;
 static lean_object* l___private_Manifold_Schwarzschild_0__reprSchwar____x40_Manifold_Schwarzschild___hyg_30____rarg___closed__2;
 lean_object* lean_nat_to_int(lean_object*);
+LEAN_EXPORT lean_object* l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__4___boxed__const__1;
 static lean_object* l_List_mapTR_loop___at_Schwar_nextRay___spec__7___closed__1;
 LEAN_EXPORT lean_object* l_chartDv___at_Schwar_connect___spec__4(double, lean_object*);
 LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Schwar_connect___spec__5___lambda__2(lean_object*, lean_object*, lean_object*, lean_object*);
@@ -289,7 +291,6 @@ LEAN_EXPORT lean_object* l_SchwarManifold___lambda__3___boxed__const__1;
 LEAN_EXPORT lean_object* l_instReprOption__1___rarg(lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT double l_Schwar_mdv(double, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_panic___at_SchwarManifold___spec__1___boxed(lean_object*);
-LEAN_EXPORT lean_object* l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__1___boxed__const__1;
 LEAN_EXPORT lean_object* l_genConnect___at_Schwar_connect___spec__1___boxed(lean_object*, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 LEAN_EXPORT lean_object* l_List_mapTR_loop___at_Schwar_nextRay___spec__7___closed__4___boxed__const__1;
 LEAN_EXPORT lean_object* l_Schwar_findChart___lambda__2(lean_object*, lean_object*, lean_object*);
@@ -300,7 +301,7 @@ static lean_object* l___private_Manifold_Schwarzschild_0__reprSchwar____x40_Mani
 LEAN_EXPORT double l_genConnect___at_Schwar_connect___spec__1(double, lean_object*, lean_object*, lean_object*, lean_object*, lean_object*);
 static lean_object* l_SchwarManifold___lambda__3___closed__12;
 LEAN_EXPORT lean_object* l_panic___at_SchwarManifold___spec__3___rarg(lean_object*, lean_object*, lean_object*);
-static lean_object* l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__1;
+static double l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__1;
 double lean_float_sub(double, double);
 LEAN_EXPORT lean_object* l_floatMod___boxed(lean_object*, lean_object*);
 static lean_object* _init_l_List_foldl___at___private_Manifold_Schwarzschild_0__reprSchwar____x40_Manifold_Schwarzschild___hyg_30____spec__3___closed__1() {
@@ -2665,7 +2666,7 @@ static double _init_l_Schwar_isPoint___closed__1() {
 _start:
 {
 lean_object* x_1; uint8_t x_2; lean_object* x_3; double x_4; 
-x_1 = lean_unsigned_to_nat(4u);
+x_1 = lean_unsigned_to_nat(6u);
 x_2 = 0;
 x_3 = lean_unsigned_to_nat(0u);
 x_4 = l_Float_ofScientific(x_1, x_2, x_3);
@@ -2686,7 +2687,7 @@ static double _init_l_Schwar_isPoint___closed__3() {
 _start:
 {
 lean_object* x_1; uint8_t x_2; lean_object* x_3; double x_4; 
-x_1 = lean_unsigned_to_nat(3u);
+x_1 = lean_unsigned_to_nat(5u);
 x_2 = 0;
 x_3 = lean_unsigned_to_nat(0u);
 x_4 = l_Float_ofScientific(x_1, x_2, x_3);
@@ -9486,26 +9487,14 @@ return x_155;
 }
 }
 }
-static lean_object* _init_l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__1___boxed__const__1() {
+static double _init_l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__1() {
 _start:
 {
-double x_1; lean_object* x_2; 
-x_1 = l_sphericalRegularize___closed__1;
-x_2 = lean_box_float(x_1);
-return x_2;
-}
-}
-static lean_object* _init_l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__1() {
-_start:
-{
-lean_object* x_1; lean_object* x_2; lean_object* x_3; lean_object* x_4; 
-x_1 = lean_box(0);
-x_2 = lean_unsigned_to_nat(0u);
-x_3 = l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__1___boxed__const__1;
-x_4 = lean_alloc_ctor(1, 3, 0);
-lean_ctor_set(x_4, 0, x_2);
-lean_ctor_set(x_4, 1, x_3);
-lean_ctor_set(x_4, 2, x_1);
+lean_object* x_1; uint8_t x_2; lean_object* x_3; double x_4; 
+x_1 = lean_unsigned_to_nat(3u);
+x_2 = 0;
+x_3 = lean_unsigned_to_nat(0u);
+x_4 = l_Float_ofScientific(x_1, x_2, x_3);
 return x_4;
 }
 }
@@ -9522,13 +9511,13 @@ static lean_object* _init_l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwa
 _start:
 {
 lean_object* x_1; lean_object* x_2; lean_object* x_3; lean_object* x_4; 
-x_1 = lean_unsigned_to_nat(1u);
-x_2 = l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__1;
+x_1 = lean_box(0);
+x_2 = lean_unsigned_to_nat(0u);
 x_3 = l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__2___boxed__const__1;
 x_4 = lean_alloc_ctor(1, 3, 0);
-lean_ctor_set(x_4, 0, x_1);
+lean_ctor_set(x_4, 0, x_2);
 lean_ctor_set(x_4, 1, x_3);
-lean_ctor_set(x_4, 2, x_2);
+lean_ctor_set(x_4, 2, x_1);
 return x_4;
 }
 }
@@ -9544,23 +9533,46 @@ return x_2;
 static lean_object* _init_l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__3() {
 _start:
 {
+lean_object* x_1; lean_object* x_2; lean_object* x_3; lean_object* x_4; 
+x_1 = lean_unsigned_to_nat(1u);
+x_2 = l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__2;
+x_3 = l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__3___boxed__const__1;
+x_4 = lean_alloc_ctor(1, 3, 0);
+lean_ctor_set(x_4, 0, x_1);
+lean_ctor_set(x_4, 1, x_3);
+lean_ctor_set(x_4, 2, x_2);
+return x_4;
+}
+}
+static lean_object* _init_l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__4___boxed__const__1() {
+_start:
+{
+double x_1; lean_object* x_2; 
+x_1 = l_sphericalRegularize___closed__1;
+x_2 = lean_box_float(x_1);
+return x_2;
+}
+}
+static lean_object* _init_l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__4() {
+_start:
+{
 lean_object* x_1; lean_object* x_2; lean_object* x_3; 
 x_1 = l_SchwarManifold___lambda__3___closed__7;
-x_2 = l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__3___boxed__const__1;
+x_2 = l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__4___boxed__const__1;
 x_3 = lean_alloc_ctor(1, 2, 0);
 lean_ctor_set(x_3, 0, x_2);
 lean_ctor_set(x_3, 1, x_1);
 return x_3;
 }
 }
-static lean_object* _init_l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__4() {
+static lean_object* _init_l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__5() {
 _start:
 {
 lean_object* x_1; lean_object* x_2; lean_object* x_3; lean_object* x_4; lean_object* x_5; 
 x_1 = l_instInhabitedFloat;
 x_2 = lean_unsigned_to_nat(4u);
 x_3 = lean_unsigned_to_nat(1u);
-x_4 = l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__3;
+x_4 = l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__4;
 x_5 = lean_alloc_closure((void*)(l_Tensor_fromList___rarg___boxed), 5, 4);
 lean_closure_set(x_5, 0, x_1);
 lean_closure_set(x_5, 1, x_2);
@@ -9582,10 +9594,10 @@ LEAN_EXPORT lean_object* l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwar
 _start:
 {
 double x_2; double x_3; lean_object* x_4; lean_object* x_5; lean_object* x_6; lean_object* x_7; lean_object* x_8; lean_object* x_9; lean_object* x_10; lean_object* x_11; lean_object* x_12; lean_object* x_13; lean_object* x_14; 
-x_2 = l_Schwar_isPoint___closed__3;
+x_2 = l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__1;
 x_3 = lean_float_mul(x_2, x_1);
 x_4 = lean_unsigned_to_nat(2u);
-x_5 = l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__2;
+x_5 = l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__3;
 x_6 = lean_box_float(x_3);
 x_7 = lean_alloc_ctor(1, 3, 0);
 lean_ctor_set(x_7, 0, x_4);
@@ -9601,7 +9613,7 @@ x_11 = lean_box(0);
 x_12 = lean_alloc_ctor(0, 2, 0);
 lean_ctor_set(x_12, 0, x_10);
 lean_ctor_set(x_12, 1, x_11);
-x_13 = l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__4;
+x_13 = l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__5;
 x_14 = lean_alloc_ctor(0, 2, 0);
 lean_ctor_set(x_14, 0, x_12);
 lean_ctor_set(x_14, 1, x_13);
@@ -10149,10 +10161,7 @@ l_instReprOption__1___rarg___closed__3 = _init_l_instReprOption__1___rarg___clos
 lean_mark_persistent(l_instReprOption__1___rarg___closed__3);
 l_instReprOption__1___rarg___closed__4 = _init_l_instReprOption__1___rarg___closed__4();
 lean_mark_persistent(l_instReprOption__1___rarg___closed__4);
-l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__1___boxed__const__1 = _init_l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__1___boxed__const__1();
-lean_mark_persistent(l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__1___boxed__const__1);
 l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__1 = _init_l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__1();
-lean_mark_persistent(l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__1);
 l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__2___boxed__const__1 = _init_l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__2___boxed__const__1();
 lean_mark_persistent(l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__2___boxed__const__1);
 l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__2 = _init_l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__2();
@@ -10161,8 +10170,12 @@ l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__3___bo
 lean_mark_persistent(l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__3___boxed__const__1);
 l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__3 = _init_l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__3();
 lean_mark_persistent(l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__3);
+l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__4___boxed__const__1 = _init_l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__4___boxed__const__1();
+lean_mark_persistent(l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__4___boxed__const__1);
 l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__4 = _init_l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__4();
 lean_mark_persistent(l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__4);
+l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__5 = _init_l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__5();
+lean_mark_persistent(l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___closed__5);
 l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___boxed__const__1 = _init_l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___boxed__const__1();
 lean_mark_persistent(l_instInhabitedRayFloatOfNatNatInstOfNatNatSchwarSchwarManifold___boxed__const__1);
 l_Test_testRay___elambda__1___closed__1 = _init_l_Test_testRay___elambda__1___closed__1();

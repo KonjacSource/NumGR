@@ -41,8 +41,8 @@ def Schwar.B2A : Vector Float 4 → Vector Float 4
 
 /-- Every point in `Watcher` frame is considered to be out of the manifold, since it's a local frame. -/
 def Schwar.isPoint : Vector Float 4 × Schwar M → Bool
-  | ⟨![t,r,θ ,φ ], SchwarzschildA⟩ => open Float in r > 2 * M && θ >= pi / 4 && θ <= 3 * pi / 4
-  | ⟨![t,r,θ',φ'], SchwarzschildB⟩ => open Float in r > 2 * M && θ'>= pi / 4 && θ'<= 3 * pi / 4
+  | ⟨![t,r,θ ,φ ], SchwarzschildA⟩ => open Float in r > 2 * M && θ >= pi / 6 && θ <= 5 * pi / 6
+  | ⟨![t,r,θ',φ'], SchwarzschildB⟩ => open Float in r > 2 * M && θ'>= pi / 6 && θ'<= 5 * pi / 6
   | _ => False
 
 /-- There are no points in the `Watcher` chart, since it's a local frame. -/
